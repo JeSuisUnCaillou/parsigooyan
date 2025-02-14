@@ -20,4 +20,21 @@ export default [
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
+  
+  {
+    name: 'nightwatch-files',
+    files: ['tests/e2e/**/*.js', 'nightwatch.conf.cjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        before: 'readonly',
+        after: 'readonly',
+        browser: 'readonly',
+        module: 'writable',
+        process: 'writable',
+      },
+    },
+  },
 ]
