@@ -92,4 +92,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: E2E tests
-        run: npm run test:e2e -- --env chrome --user-data-dir=/tmp/nightwatch-user-data-dir-${{ github.run_id }}
+        run: npm run test:e2e -- --env chrome
