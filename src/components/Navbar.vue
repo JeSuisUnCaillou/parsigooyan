@@ -27,7 +27,6 @@
 
 <script>
 import NavbarMenu from '@/components/NavbarMenu.vue'
-// import { mapMutations } from 'vuex'
 
 export default {
   name: 'navbar',

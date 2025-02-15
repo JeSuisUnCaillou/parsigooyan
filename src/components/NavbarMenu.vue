@@ -2,13 +2,10 @@
 <script setup>
 import { ref } from 'vue'
 import NavFooter from '@/components/NavFooter.vue'
+import { useDefinitionsStore } from '@/stores/definitions.js'
 
+const store = useDefinitionsStore()
 const isOpen = ref(false)
-const letters = ref([
-  { sign: 'A', count: 0 },
-  { sign: 'B', count: 0 },
-  { sign: 'C', count: 0 },
-])
 
 function toggleMenu () {
   isOpen.value = !isOpen.value
@@ -40,7 +37,7 @@ function closeMenu () {
         </span>
       </router-link>
 
-      <router-link  v-for="letter in letters"
+      <router-link  v-for="letter in store.letters"
                     :key="letter.sign"
                     class="letter-link"
                     :to="{ name: 'Letter', params: { letter: letter.sign } }"

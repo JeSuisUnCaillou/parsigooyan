@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 // var history = require('connect-history-api-fallback')
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 const isProd = process.env.NODE_ENV === 'production'
 
 const app = express()
