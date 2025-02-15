@@ -92,6 +92,8 @@ function searchInput () {
   }
 
   text-align: right;
+
+  direction: rtl;
 }
 
 .search-icon {
