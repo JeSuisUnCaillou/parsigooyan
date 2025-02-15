@@ -32,7 +32,7 @@ function closeMenu () {
     </div>
 
     <div class="side-menu" :open="isOpen">
-      <!-- <router-link :to="{ name: 'Home' }"
+      <router-link :to="{ name: 'Home' }"
                     class="brand menu-item">
         <img src="/logo_bouquetin_150x150.png" class="brand-icon" />
         <span class="brand-title title-font">
@@ -46,7 +46,7 @@ function closeMenu () {
                     :to="{ name: 'Letter', params: { letter: letter.sign } }"
                     @click.native="closeMenu">
         {{letter.sign}} <span class="letter-count">({{letter.count}} definitions)</span>
-      </router-link> -->
+      </router-link>
 
       <NavFooter />
     </div>
