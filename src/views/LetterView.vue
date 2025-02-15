@@ -22,13 +22,17 @@ const store = useDefinitionsStore()
 const route = useRoute()
 const definitions = ref([])
 
-onMounted(async () => {
-  definitions.value = await store.get_definitions_of_letter({ letter: route.params.letter })
+async function getDefinitions (letter) {
+  definitions.value = null
+  definitions.value = await store.get_definitions_of_letter({ letter: letter })
+}
+
+onMounted(() => {
+  getDefinitions(route.params.letter)
 })
 
 watch(() => route.params.letter, async (newLetter) => {
-  definitions.value = null
-  definitions.value = await store.get_definitions_of_letter({ letter: newLetter })
+  getDefinitions(newLetter)
 })
 </script>
 
