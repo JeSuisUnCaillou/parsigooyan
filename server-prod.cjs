@@ -24,11 +24,11 @@ app.use(function (request, response, next) {
 })
 
 // Backend endpoints
-// var routes = require('./api/routes')
-// var bodyParser = require('body-parser')
-// app.use(bodyParser.urlencoded({ extended: true }))
-// app.use(bodyParser.json())
-// routes(app)
+var routes = require('./api/routes.cjs')
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+routes(app)
 
 // Static frontend
 // app.use(history())
