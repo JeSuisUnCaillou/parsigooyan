@@ -6,6 +6,6 @@ import HomeView from '../HomeView.vue'
 describe('HomeView', () => {
   it('renders properly', () => {
     const wrapper = mount(HomeView, { props: { } })
-    expect(wrapper.text()).toContain('COUCOU ! :D')
+    expect(wrapper.text()).toContain('The only pocket dictionary of foreign words in Farsi')
   })
 })
