@@ -25,32 +25,28 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import NavbarMenu from '@/components/NavbarMenu.vue'
+import { useTemplateRef, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDefinitionsStore } from '@/stores/definitions.js'
+const router = useRouter()
+const store = useDefinitionsStore()
+const search = useTemplateRef('search')
+const inputSearch = ref(null)
 
-export default {
-  name: 'navbar',
-  components: { NavbarMenu },
-  data () {
-    return {
-      inputSearch: null
-    }
-  },
-  methods: {
-    // ...mapMutations('definitions', ['setSearchQuery']),
-    cleanInput () {
-      this.inputSearch = this.inputSearch.trim()
-    },
-    searchInput () {
-      if (this.inputSearch) {
-        this.cleanInput()
-        this.setSearchQuery(this.inputSearch)
-        // this.$router.push({ name: 'SearchResults', query: { q: this.inputSearch } })
-        this.$refs.search.blur()
-      } else {
-        this.$refs.search.focus()
-      }
-    }
+function cleanInput () {
+  inputSearch.value = inputSearch.value.trim()
+}
+
+function searchInput () {
+  if (inputSearch.value) {
+    cleanInput()
+    store.setSearchQuery(inputSearch.value)
+    router.push({ name: 'SearchResults', query: { q: inputSearch.value } })
+    search.value.blur()
+  } else {
+    search.value.focus()
   }
 }
 </script>

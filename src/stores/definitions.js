@@ -34,7 +34,6 @@ export const useDefinitionsStore = defineStore('definitions', {
     async getLetters () {
       const result = await axios.get(`${backendUrl}api/letters`)
       this.letters = result.data.letters
-      console.log(`Got ${this.letters.length} letters`)
     },
     async get_definitions_of_letter (params) {
       const { letter } = params

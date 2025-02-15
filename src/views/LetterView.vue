@@ -2,11 +2,11 @@
   <div>
     <back-button position="top" />
 
-    <h1>{{letter}}</h1>
+    <h1>{{route.params.letter}}</h1>
 
     <Definitions :definitions="definitions"/>
 
-    <back-button position="bottom" v-if="store.definitions && store.definitions.length > 5"/>
+    <back-button position="bottom" v-if="definitions && definitions.length > 5"/>
   </div>
 </template>
 
@@ -15,16 +15,20 @@ import BackButton from '@/components/BackButton.vue'
 import Definitions from '@/components/Definitions.vue'
 import { useDefinitionsStore } from '@/stores/definitions.js'
 import { useRoute } from 'vue-router'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 
 const store = useDefinitionsStore()
 const route = useRoute()
-const letter = route.params.letter
-const definitions = ref(null)
+const definitions = ref([])
 
 onMounted(async () => {
-  definitions.value = await store.get_definitions_of_letter({ letter: letter })
+  definitions.value = await store.get_definitions_of_letter({ letter: route.params.letter })
+})
+
+watch(() => route.params.letter, async (newLetter) => {
+  definitions.value = null
+  definitions.value = await store.get_definitions_of_letter({ letter: newLetter })
 })
 </script>
 
