@@ -1,3 +1,25 @@
+
+<script setup>
+import { ref } from 'vue'
+import NavFooter from '@/components/NavFooter.vue'
+
+const isOpen = ref(false)
+const letters = ref([
+  { sign: 'A', count: 0 },
+  { sign: 'B', count: 0 },
+  { sign: 'C', count: 0 },
+])
+
+function toggleMenu () {
+  isOpen.value = !isOpen.value
+}
+
+function closeMenu () {
+  isOpen.value = false
+}
+</script>
+
+
 <template>
   <div class="menu-container">
     <div class="burger-button" @click="toggleMenu">
@@ -10,7 +32,7 @@
     </div>
 
     <div class="side-menu" :open="isOpen">
-      <router-link :to="{ name: 'Home' }"
+      <!-- <router-link :to="{ name: 'Home' }"
                     class="brand menu-item">
         <img src="/logo_bouquetin_150x150.png" class="brand-icon" />
         <span class="brand-title title-font">
@@ -24,7 +46,7 @@
                     :to="{ name: 'Letter', params: { letter: letter.sign } }"
                     @click.native="closeMenu">
         {{letter.sign}} <span class="letter-count">({{letter.count}} definitions)</span>
-      </router-link>
+      </router-link> -->
 
       <NavFooter />
     </div>
@@ -33,38 +55,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import NavFooter from '@/components/NavFooter.vue'
-// import { mapState } from 'vuex'
-
-export default {
-  name: 'navbar-menu',
-  components: { NavFooter },
-  data () {
-    return {
-      isOpen: false
-    }
-  },
-  computed: {
-    // ...mapState('definitions', ['letters']),
-    letters () {
-      return []
-    },
-    user () {
-      return this.$auth.user
-    }
-  },
-  methods: {
-    toggleMenu () {
-      this.isOpen = !this.isOpen
-    },
-    closeMenu () {
-      this.isOpen = false
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .menu-container {
@@ -89,7 +79,7 @@ export default {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.24);
   font-size: 1rem;
 
-  &[open] {
+  &[open=true] {
     transform: translateX(0);
   }
 }
@@ -119,7 +109,7 @@ export default {
   display: none;
   cursor: pointer;
 
-  &[open] {
+  &[open=true] {
     display: block;
   }
 }
@@ -215,7 +205,7 @@ export default {
   top: 12px;
 }
 
-#nav-icon1[data-open] span:nth-child(1) {
+#nav-icon1[data-open=true] span:nth-child(1) {
   top: 6px;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
@@ -223,12 +213,12 @@ export default {
   transform: rotate(135deg);
 }
 
-#nav-icon1[data-open] span:nth-child(2) {
+#nav-icon1[data-open=true] span:nth-child(2) {
   opacity: 0;
   left: -30px;
 }
 
-#nav-icon1[data-open] span:nth-child(3) {
+#nav-icon1[data-open=true] span:nth-child(3) {
   top: 6px;
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
