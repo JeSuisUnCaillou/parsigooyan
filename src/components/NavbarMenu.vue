@@ -29,21 +29,21 @@ function closeMenu () {
     </div>
 
     <div class="side-menu" :open="isOpen">
-      <router-link :to="{ name: 'Home' }"
+      <RouterLink :to="{ name: 'Home' }"
                     class="brand menu-item">
         <img src="/logo_bouquetin_150x150.png" class="brand-icon" />
         <span class="brand-title title-font">
           Parsigooyan
         </span>
-      </router-link>
+      </RouterLink>
 
-      <router-link  v-for="letter in store.letters"
+      <RouterLink  v-for="letter in store.letters"
                     :key="letter.sign"
                     class="letter-link"
                     :to="{ name: 'Letter', params: { letter: letter.sign } }"
                     @click.native="closeMenu">
         {{letter.sign}} <span class="letter-count">({{letter.count}} definitions)</span>
-      </router-link>
+      </RouterLink>
 
       <NavFooter />
     </div>

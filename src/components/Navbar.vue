@@ -2,13 +2,13 @@
   <div class="navbar">
     <navbar-menu />
 
-    <router-link :to="{ name: 'Home' }"
+    <RouterLink :to="{ name: 'Home' }"
                   class="nav-link brand">
       <img src="/logo_bouquetin_150x150.png" class="brand-icon" />
       <span class="brand-title title-font">
         Parsigooyan
       </span>
-    </router-link>
+    </RouterLink>
 
     <div class="search-container">
       <input  class="search-bar"

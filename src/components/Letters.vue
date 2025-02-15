@@ -1,6 +1,6 @@
 <template>
   <div class="letters">
-    <router-link  v-for="letter in store.letters"
+    <RouterLink  v-for="letter in store.letters"
           :key="letter.sign"
           class="letter"
           :to="{ name: 'Letter', params: { letter: letter.sign } }">
@@ -11,7 +11,7 @@
       <div class="subtext">
         {{letter.count}} definitions
       </div>
-    </router-link>
+    </RouterLink>
   </div>
 </template>
 

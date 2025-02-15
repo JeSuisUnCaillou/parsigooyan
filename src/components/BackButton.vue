@@ -1,10 +1,10 @@
 <template>
-  <router-link  class="back-button"
+  <RouterLink  class="back-button"
                 :data-position="position"
                 :to="{ name: 'Home' }">
     <img src="@/assets/left-arrow.svg" class="icon"/>
     Back
-  </router-link>
+  </RouterLink>
 </template>
 
 <script>
