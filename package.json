@@ -22,6 +22,7 @@
     "@vue/test-utils": "^2.4.6",
     "cypress": "^14.0.1",
     "jsdom": "^26.0.0",
+    "sass-embedded": "^1.85.0",
     "start-server-and-test": "^2.0.10",
     "vite": "^6.0.11",
     "vite-plugin-vue-devtools": "^7.7.1",
