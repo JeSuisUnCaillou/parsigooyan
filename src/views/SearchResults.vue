@@ -1,0 +1,50 @@
+<template>
+  <div class="search-results">
+    <back-button position="top" />
+
+    <h1 class="results-header">
+      {{store.nbDefinitions}} result{{store.nbDefinitions > 1 ? 's' : ''}} for : {{route.query.q}}
+    </h1>
+
+    <Definitions :definitions="definitions"/>
+
+    <back-button  position="bottom"
+                  v-if="definitions && definitions.length > 5"/>
+  </div>
+</template>
+
+<script setup>
+import Definitions from '@/components/Definitions.vue'
+import BackButton from '@/components/BackButton.vue'
+import { useRoute } from 'vue-router'
+import { useDefinitionsStore } from '@/stores/definitions.js'
+import { computed, onMounted, watch } from 'vue'
+
+const route = useRoute()
+const store = useDefinitionsStore()
+const definitions = computed(() => store.definitions)
+
+onMounted(() => {
+  store.search(route.query.q)
+})
+
+watch(() => route.query.q, (newQuery) => {
+  store.search(newQuery)
+})
+</script>
+
+<style lang="scss" scoped>
+.results-header {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.definitions-count {
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: $red;
+  color: $txt-color;
+  font-size: 1.2rem;
+}
+</style>

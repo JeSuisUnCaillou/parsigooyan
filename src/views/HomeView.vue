@@ -1,4 +1,5 @@
 <script setup>
+import Letters from '@/components/Letters.vue'
 </script>
 
 <template>
@@ -15,7 +16,7 @@
       </div>
     </div>
 
-    <!-- <letters /> -->
+    <Letters />
 
   </div>
 </template>
