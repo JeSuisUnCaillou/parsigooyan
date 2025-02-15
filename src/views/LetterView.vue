@@ -4,8 +4,7 @@
 
     <h1>{{letter}}</h1>
 
-    <!-- <definitions :definitions="definitions"/> -->
-     {{ definitions }}
+    <Definitions :definitions="definitions"/>
 
     <back-button position="bottom" v-if="store.definitions && store.definitions.length > 5"/>
   </div>
@@ -13,6 +12,7 @@
 
 <script setup>
 import BackButton from '@/components/BackButton.vue'
+import Definitions from '@/components/Definitions.vue'
 import { useDefinitionsStore } from '@/stores/definitions.js'
 import { useRoute } from 'vue-router'
 import { ref, onMounted } from 'vue'
