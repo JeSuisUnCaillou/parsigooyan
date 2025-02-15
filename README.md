@@ -17,15 +17,28 @@ npm install
 ```
 
 ### Compile and Hot-Reload for Development
+The front :
 
 ```sh
 npm run dev
 ```
 
+The back (without hot reload, install nodemon if needed) :
+```sh
+npm run start:dev
+```
+
 ### Compile and Minify for Production
 
+Build for production :
 ```sh
 npm run build
+```
+
+Run production server :
+
+```sh
+npm run start
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
