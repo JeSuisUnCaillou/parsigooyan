@@ -11,6 +11,10 @@
     </RouterLink>
 
     <div class="search-container">
+      <div  class="close-search"
+            @click="clearSearch">
+        <img src="@/assets/circle-cross.svg" class="close-icon"/>
+      </div>
       <input  class="search-bar"
               v-model="inputSearch"
               placeholder="Search a word"
@@ -49,6 +53,11 @@ function searchInput () {
     search.value.focus()
   }
 }
+
+function clearSearch () {
+  inputSearch.value = null
+  search.value.focus()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -81,6 +90,7 @@ function searchInput () {
   color: $txt-color;
   width: 100%;
   padding: 15px;
+  padding-left: 55px; // size of the search icon
   font-size: 1.5rem;
 
   &:hover, &:focus {
@@ -92,8 +102,25 @@ function searchInput () {
   }
 
   text-align: right;
-
   direction: rtl;
+}
+
+.close-search {
+  cursor: pointer;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  &:hover, &:focus {
+    background-color: $lighter;
+  }
+
+  .close-icon {
+    height: 25px;
+  }
 }
 
 .search-icon {
