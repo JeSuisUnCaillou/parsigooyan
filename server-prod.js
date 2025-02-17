@@ -1,7 +1,6 @@
 import express from 'express'
 import path from 'path'
 import history from 'connect-history-api-fallback'
-import cors from 'cors'
 import routes from './api/routes.js'
 import bodyParser from 'body-parser'
 
@@ -11,8 +10,10 @@ const app = express()
 
 // Allow CORS in development & test
 if (!isProd) {
-  console.log('Allow CORS requests')
-  app.use(cors())
+  import('cors').then(cors => {
+    console.log('Allow CORS requests')
+    app.use(cors.default())
+  })
 }
 
 // Redirect to https in production
