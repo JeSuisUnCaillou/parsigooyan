@@ -42,8 +42,6 @@ jobs:
       - name: Merge develop into main
         run: |
           git fetch origin
-          git checkout develop
           git checkout main
-          git pull origin main
-          git merge develop
+          git merge origin/develop --allow-unrelated-histories
           git push origin main
