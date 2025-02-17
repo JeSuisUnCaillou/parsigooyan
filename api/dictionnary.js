@@ -1,10 +1,10 @@
-'use strict'
-
-const fs = require('fs')
-const letterReplacements = require('./letter_replacements.cjs')
+import fs from 'fs'
+import farsi_search from './farsi_search.js'
 
 const filename = 'api/dictionnary_2021_06_07.json'
 const dictionnary = JSON.parse(fs.readFileSync(filename))
+const search = farsi_search(dictionnary).fuzzy_search
+
 console.log(`${dictionnary.length} words loaded`)
 
 const letters = dictionnary.reduce((letters, definition) => {
@@ -18,28 +18,10 @@ const letters = dictionnary.reduce((letters, definition) => {
 
 console.log(`${Object.keys(letters).length} letters loaded`)
 
-const normalizePersian = (word) => {
-  var newWord = word
 
-  for (var letter in letterReplacements) {
-    const replacements = letterReplacements[letter].join('|')
-    const regex = new RegExp(`(${replacements})`, 'g')
-    newWord = newWord.normalize().replace(regex, letter)
-  }
-
-  return newWord
-}
-
-module.exports = {
+export default {
   async find (word) {
-    const foreignResults = dictionnary.filter((definition) => {
-      return normalizePersian(definition.foreign_word).includes(normalizePersian(word))
-    })
-    const persianResults = dictionnary.filter((definition) => {
-      return normalizePersian(definition.persian_word).includes(normalizePersian(word))
-    })
-
-    var definitions = [...foreignResults, ...persianResults]
+    var definitions = search(word)
     const nbDefinitions = definitions.length
 
     return {
