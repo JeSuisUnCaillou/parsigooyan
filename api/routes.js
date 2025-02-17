@@ -1,8 +1,6 @@
-'use strict'
+import dictionnary from './dictionnary.js'
 
-const dictionnary = require('./dictionnary.cjs')
-
-module.exports = (app) => {
+export default (app) => {
   app.get('/api/ping', (req, res) => {
     console.log('GET ' + req.url)
     res.send({ message: 'pong' })

@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=production node server-prod.cjs",
-    "start:dev": "PORT=8081 node server-prod.cjs",
-    "start:test": "PORT=4173 node server-prod.cjs",
+    "start": "NODE_ENV=production node server-prod.js",
+    "start:dev": "PORT=8081 node server-prod.js",
+    "start:test": "PORT=4173 node server-prod.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

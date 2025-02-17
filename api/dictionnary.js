@@ -1,8 +1,10 @@
-'use strict'
-const fs = require('fs')
+import fs from 'fs'
+import farsi_search from './farsi_search.js'
 
 const filename = 'api/dictionnary_2021_06_07.json'
 const dictionnary = JSON.parse(fs.readFileSync(filename))
+const search = farsi_search(dictionnary).search_without_accents
+
 console.log(`${dictionnary.length} words loaded`)
 
 const letters = dictionnary.reduce((letters, definition) => {
@@ -16,11 +18,10 @@ const letters = dictionnary.reduce((letters, definition) => {
 
 console.log(`${Object.keys(letters).length} letters loaded`)
 
-const farsi_search = require('./farsi_search.cjs')(dictionnary)
 
-module.exports = {
+export default {
   async find (word) {
-    var definitions = farsi_search.search_without_accents(word)
+    var definitions = search(word)
     const nbDefinitions = definitions.length
 
     return {

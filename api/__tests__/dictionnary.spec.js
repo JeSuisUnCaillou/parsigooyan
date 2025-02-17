@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import dictionnary from '../dictionnary.cjs'
+import dictionnary from '../dictionnary.js'
 
 describe('dictionnary.letters()', () => {
   it('loads all the letters', () => {

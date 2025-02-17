@@ -1,4 +1,4 @@
-const letterReplacements = require('./letter_replacements.cjs')
+import letterReplacements from './letter_replacements.js'
 
 const normalizePersian = (word) => {
   var newWord = word
@@ -12,7 +12,7 @@ const normalizePersian = (word) => {
   return newWord
 }
 
-module.exports = (dictionnary) => {
+export default (dictionnary) => {
   return {
     search_without_accents: (word) => {
       const foreignResults = dictionnary.filter((definition) => {
