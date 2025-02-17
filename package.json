@@ -30,6 +30,7 @@
     "sass-embedded": "^1.85.0",
     "start-server-and-test": "^2.0.10",
     "vite": "^6.0.11",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vitest": "^3.0.5"
   }
