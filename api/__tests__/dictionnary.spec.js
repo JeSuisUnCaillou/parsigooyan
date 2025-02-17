@@ -21,19 +21,19 @@ describe('dictionnary.definitions_of_letter()', () => {
 describe('dictionnary.find()', () => {
   it('finds the exact foreign word "عجب" in the dictionnary', async () => {
     const result = await dictionnary.find('عجب')
-    expect(result.nbDefinitions).toBe(5)
+    expect(result.nbDefinitions).toBeGreaterThan(5)
     expect(result.definitions[0].foreign_word).toBe('عجب')
   })
 
   it('finds the partial foreign word "اکبر" in the dictionnary', async () => {
     const result = await dictionnary.find('اکبر')
-    expect(result.nbDefinitions).toBe(3)
-    expect(result.definitions[0].foreign_word).toBe('دُب اکبر')
+    expect(result.nbDefinitions).toBeGreaterThan(3)
+    expect(result.definitions.map(r => r.foreign_word)).toContain('دُب اکبر')
   })
 
   it('finds the partial foreign word "اصغر" in the dictionnary', async () => {
     const result = await dictionnary.find('اصغر')
-    expect(result.nbDefinitions).toBe(1)
+    expect(result.nbDefinitions).toBeGreaterThan(1)
     expect(result.definitions[0].foreign_word).toBe('دُب اصغر')
   })
 

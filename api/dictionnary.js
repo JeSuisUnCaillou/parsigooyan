@@ -3,7 +3,7 @@ import farsi_search from './farsi_search.js'
 
 const filename = 'api/dictionnary_2021_06_07.json'
 const dictionnary = JSON.parse(fs.readFileSync(filename))
-const search = farsi_search(dictionnary).search_without_accents
+const search = farsi_search(dictionnary).fuzzy_search
 
 console.log(`${dictionnary.length} words loaded`)
 
