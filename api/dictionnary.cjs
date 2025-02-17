@@ -16,7 +16,7 @@ const letters = dictionnary.reduce((letters, definition) => {
   return letters
 }, {})
 
-console.log(letters)
+console.log(`${Object.keys(letters).length} letters loaded`)
 
 const normalizePersian = (word) => {
   var newWord = word
