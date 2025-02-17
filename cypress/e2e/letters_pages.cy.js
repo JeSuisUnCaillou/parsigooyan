@@ -1,9 +1,9 @@
 // https://on.cypress.io/api
 
 describe('Letters pages', () => {
-  describe('Clicking the back button', () => {
-    it('goes back to the home page', () => {
-      cy.visit('/letter/%D8%B0')
+  describe('When visiting directly a letter page', () => {
+    it('Clicking the back button goes back to the home page', () => {
+      cy.visit('letter/%D8%B0')
       cy.contains('a', 'Back').click()
       cy.url().should('eq', Cypress.config().baseUrl + '/')
     })

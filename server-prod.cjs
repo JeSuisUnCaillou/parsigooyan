@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-// var history = require('connect-history-api-fallback')
+var history = require('connect-history-api-fallback')
 const port = process.env.PORT || 8081
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -13,7 +13,7 @@ if (!isProd) {
   app.use(cors())
 }
 
-// Redirect to https in production, for auth0 callbacks
+// Redirect to https in production
 app.use(function (request, response, next) {
   if (isProd && !(request.headers['x-forwarded-proto'] === 'https' || request.secure)) {
     const newUrl = 'https://' + request.headers.host + request.url
@@ -31,7 +31,7 @@ app.use(bodyParser.json())
 routes(app)
 
 // Static frontend
-// app.use(history())
+app.use(history())
 app.use('/', express.static(path.join(__dirname, 'dist')))
 
 const server = app.listen(port, () => {

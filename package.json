@@ -5,16 +5,18 @@
   "type": "module",
   "scripts": {
     "start": "NODE_ENV=production node server-prod.cjs",
-    "start:dev": "node server-prod.cjs",
+    "start:dev": "PORT=8081 node server-prod.cjs",
+    "start:test": "PORT=4173 node server-prod.cjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
     "prepare": "cypress install",
-    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
+    "test:e2e": "start-server-and-test 'npm run start:test' http://localhost:4173 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^2.0.0",
     "express": "^4.21.2",
     "pinia": "^2.3.1",
     "vue": "^3.5.13",
