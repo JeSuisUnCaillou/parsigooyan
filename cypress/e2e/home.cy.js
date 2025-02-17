@@ -34,4 +34,24 @@ describe('Home page', () => {
   it('should display the footer', () => {
     cy.get('.footer').should('exist')
   })
+
+  describe('Burger menu', () => {
+    beforeEach(() => {
+      cy.get('.burger').click()
+    })
+
+    it('opens the side menu', () => {
+      cy.get('.side-menu').should('be.visible')
+    })
+
+    it('closes the side menu by clicking on the cross', () => {
+      cy.get('.burger').click()
+      cy.get('.side-menu').should('not.be.visible')
+    })
+
+    it('closes the side menu by clicking on the outside of the menu', () => {
+      cy.get('.cover').click()
+      cy.get('.side-menu').should('not.be.visible')
+    })
+  })
 })
