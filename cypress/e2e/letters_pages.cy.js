@@ -19,13 +19,7 @@ describe('Letters pages', () => {
 
     it('goes to the letter page', () => {
       cy.url().should('include', '/letter/%D8%B8')
-    })
-
-    it('displays the letter in title', () => {
       cy.contains('h1', 'ظ')
-    })
-
-    it("displays the letter's definitions", () => {
       cy.get('.definition').should('have.length', 21)
     })
   })
@@ -41,13 +35,7 @@ describe('Letters pages', () => {
 
     it('goes to the letter page', () => {
       cy.url().should('include', '/letter/%D8%B8')
-    })
-
-    it('displays the letter in title', () => {
       cy.contains('h1', 'ظ')
-    })
-
-    it("displays the letter's definitions", () => {
       cy.get('.definition').should('have.length', 21)
     })
 
@@ -59,15 +47,9 @@ describe('Letters pages', () => {
         })
       })
 
-      it('goes to the letter page', () => {
+      it('switches to the other letter page', () => {
         cy.url().should('include', '/letter/%D8%B0')
-      })
-  
-      it('displays the letter in title', () => {
         cy.contains('h1', 'ذ')
-      })
-  
-      it("displays the letter's definitions", () => {
         cy.get('.definition').should('have.length', 38)
       })
     })
