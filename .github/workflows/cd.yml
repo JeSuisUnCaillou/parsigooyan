@@ -34,7 +34,7 @@ jobs:
 
   merge_develop_into_main:
     runs-on: ubuntu-latest
-    requires:
+    needs:
       - unit-tests
       - e2e-tests
     steps:
