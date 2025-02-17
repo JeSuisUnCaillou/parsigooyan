@@ -39,6 +39,10 @@ jobs:
       - e2e-tests
     steps:
       - uses: actions/checkout@v3
+      - name: Set up Git user
+        run: |
+          git config --global user.email "cd@yopmail.com"
+          git config --global user.name "Github CD"
       - name: Merge develop into main
         run: |
           git fetch origin
