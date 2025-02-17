@@ -3,7 +3,7 @@
     <back-button position="top" />
 
     <h1 class="results-header">
-      {{store.nbDefinitions}} result{{store.nbDefinitions > 1 ? 's' : ''}} for : {{route.query.q}}
+      {{store.nbDefinitions == 0 ? "0 r" : "R"}}esult{{store.nbDefinitions > 1 ? 's' : ''}} for : {{route.query.q}}
     </h1>
 
     <Definitions :definitions="definitions"/>
