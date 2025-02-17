@@ -1,6 +1,6 @@
 // https://on.cypress.io/api
 
-describe('Visiting the root url', () => {
+describe('Home page', () => {
   beforeEach(() => {
     cy.visit('/')
   })
