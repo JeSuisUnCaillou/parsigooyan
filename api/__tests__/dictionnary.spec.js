@@ -19,19 +19,19 @@ describe('dictionnary.definitions_of_letter()', () => {
 })
 
 describe('dictionnary.find()', () => {
-  it('finds the exact word "عجب" in the dictionnary', async () => {
+  it('finds the exact foreign word "عجب" in the dictionnary', async () => {
     const result = await dictionnary.find('عجب')
     expect(result.nbDefinitions).toBe(5)
     expect(result.definitions[0].foreign_word).toBe('عجب')
   })
 
-  it('finds the partial word "اکبر" in the dictionnary', async () => {
+  it('finds the partial foreign word "اکبر" in the dictionnary', async () => {
     const result = await dictionnary.find('اکبر')
     expect(result.nbDefinitions).toBe(3)
     expect(result.definitions[0].foreign_word).toBe('دُب اکبر')
   })
 
-  it('finds the partial word "اصغر" in the dictionnary', async () => {
+  it('finds the partial foreign word "اصغر" in the dictionnary', async () => {
     const result = await dictionnary.find('اصغر')
     expect(result.nbDefinitions).toBe(1)
     expect(result.definitions[0].foreign_word).toBe('دُب اصغر')
@@ -47,14 +47,19 @@ describe('dictionnary.find()', () => {
   search_couples.forEach((search_couple) => {
     const { without_accents, with_accents } = search_couple
 
-    it(`finds the word "${with_accents}" in the dictionnary without its accents`, async () => {
+    it(`finds the foreign word "${without_accents}" in the dictionnary without its accents`, async () => {
       const result_without_accents = await dictionnary.find(without_accents)
       expect(result_without_accents.definitions[0].foreign_word).toBe(with_accents)
     })
 
-    it(`finds the word "${with_accents}" in the dictionnary with its accents`, async () => {
+    it(`finds the foreign word "${with_accents}" in the dictionnary with its accents`, async () => {
       const result_with_accents = await dictionnary.find(with_accents)
       expect(result_with_accents.definitions[0].foreign_word).toBe(with_accents)
     })
+  })
+
+  it('finds the exact word "پرسش" in the definition of a foreign word', async () => {
+    const result = await dictionnary.find('پرسش')
+    expect(result.definitions[0].foreign_word).toBe('سؤال')
   })
 })
