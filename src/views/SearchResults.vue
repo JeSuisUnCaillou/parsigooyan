@@ -3,7 +3,7 @@
     <back-button position="top" />
 
     <h1 class="results-header">
-      {{store.nbDefinitions == 0 ? "0 r" : "R"}}esult{{store.nbDefinitions > 1 ? 's' : ''}} for : {{route.query.q}}
+      {{computed_title}}
     </h1>
 
     <Definitions :definitions="definitions"/>
@@ -23,6 +23,10 @@ import { computed, onMounted, watch } from 'vue'
 const route = useRoute()
 const store = useDefinitionsStore()
 const definitions = computed(() => store.definitions)
+
+const computed_title = computed(() => {
+  return (store.nbDefinitions == 0 ? "0 r" : "R") + "esult" + (store.nbDefinitions > 1 ? 's' : '') + " for : " + route.query.q
+})
 
 onMounted(() => {
   store.search(route.query.q)
