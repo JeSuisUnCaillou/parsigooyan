@@ -11,7 +11,7 @@
     </RouterLink>
 
     <div class="search-container">
-      <div  class="close-search"
+      <div  class="clear-search"
             @click="clearSearch">
         <img src="@/assets/circle-cross.svg" class="close-icon"/>
       </div>
@@ -105,7 +105,7 @@ function clearSearch () {
   direction: rtl;
 }
 
-.close-search {
+.clear-search {
   cursor: pointer;
   padding: 0 15px;
   height: 100%;
