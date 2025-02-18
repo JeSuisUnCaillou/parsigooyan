@@ -1,16 +1,19 @@
-const express = require('express')
-const path = require('path')
-var history = require('connect-history-api-fallback')
+import express from 'express'
+import path from 'path'
+import history from 'connect-history-api-fallback'
+import routes from './api/routes.js'
+import bodyParser from 'body-parser'
+
 const port = process.env.PORT || 8081
 const isProd = process.env.NODE_ENV === 'production'
-
 const app = express()
 
 // Allow CORS in development & test
 if (!isProd) {
-  console.log('Allow CORS requests')
-  const cors = require('cors')
-  app.use(cors())
+  import('cors').then(cors => {
+    console.log('Allow CORS requests')
+    app.use(cors.default())
+  })
 }
 
 // Redirect to https in production
@@ -24,15 +27,13 @@ app.use(function (request, response, next) {
 })
 
 // Backend endpoints
-var routes = require('./api/routes.cjs')
-var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 routes(app)
 
 // Static frontend
 app.use(history())
-app.use('/', express.static(path.join(__dirname, 'dist')))
+app.use('/', express.static(path.join(process.cwd(), 'dist')))
 
 const server = app.listen(port, () => {
   console.log('App is running on port ' + port)

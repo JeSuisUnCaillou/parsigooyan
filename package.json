@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=production node server-prod.cjs",
-    "start:dev": "PORT=8081 node server-prod.cjs",
-    "start:test": "PORT=4173 node server-prod.cjs",
+    "start": "NODE_ENV=production node server-prod.js",
+    "start:dev": "PORT=8081 node server-prod.js",
+    "start:test": "PORT=4173 node server-prod.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -18,7 +18,8 @@
   "dependencies": {
     "connect-history-api-fallback": "^2.0.0",
     "express": "^4.21.2",
-    "pinia": "^2.3.1",
+    "fuse.js": "^7.1.0",
+    "pinia": "^3.0.1",
     "vue": "^3.5.13",
     "vue-gtag": "^2.1.0",
     "vue-router": "^4.5.0"
