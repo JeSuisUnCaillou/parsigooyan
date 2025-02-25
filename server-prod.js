@@ -10,10 +10,9 @@ const app = express()
 
 // Allow CORS in development & test
 if (!isProd) {
-  import('cors').then(cors => {
-    console.log('Allow CORS requests')
-    app.use(cors.default())
-  })
+  const cors = await import('cors')
+  console.log('Allow CORS requests')
+  app.use(cors.default())
 }
 
 // Redirect to https in production
