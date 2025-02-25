@@ -26,7 +26,8 @@ const store = useDefinitionsStore()
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 20px;
 }
 
 .letter {
@@ -34,7 +35,6 @@ const store = useDefinitionsStore()
   background-color: $light-gray;
   color: $bg-color;
   padding: 10px;
-  margin-top: 10px;
 
   width: 135px;
   height: 100px;
