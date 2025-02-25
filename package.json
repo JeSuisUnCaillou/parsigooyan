@@ -32,7 +32,7 @@
     "jsdom": "^26.0.0",
     "sass-embedded": "^1.85.0",
     "start-server-and-test": "^2.0.10",
-    "vite": "^6.1.1",
+    "vite": "^6.2.0",
     "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vitest": "^3.0.6"
