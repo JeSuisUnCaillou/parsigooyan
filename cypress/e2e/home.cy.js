@@ -10,7 +10,7 @@ describe('Home page', () => {
   })
 
   it('displays the navbar search', () => {
-    cy.get('input[placeholder="Search a word"]').should('exist')
+    cy.get('input[placeholder="جستجو کنید"]').should('exist')
   })
 
   it('should contain 33 letter links within the menu element', () => {

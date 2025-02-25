@@ -16,6 +16,6 @@ describe('HomeView', () => {
         plugins: [createPinia()]
       }
     })
-    expect(wrapper.text()).toContain('The only pocket dictionary of foreign words in Farsi')
+    expect(wrapper.text()).toContain('تنها واژه نامه جیبی, برای جایگزینی واژه های خارجی با واژه های پارسی')
   })
 })

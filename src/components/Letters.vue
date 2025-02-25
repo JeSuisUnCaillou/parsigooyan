@@ -1,26 +1,50 @@
 <template>
-  <div class="letters">
-    <RouterLink  v-for="letter in store.letters"
-          :key="letter.sign"
-          class="letter"
-          :to="{ name: 'Letter', params: { letter: letter.sign } }">
-      <h3>
-        {{letter.sign}}
-      </h3>
+  <Loading v-if="store.letters === null" />
 
-      <div class="subtext">
-        {{letter.count}} definitions
-      </div>
-    </RouterLink>
+  <div v-else>
+    <div class="total-title">
+      {{ total_definitions }} definitions
+    </div>
+
+    <div class="letters">
+      <RouterLink  v-for="letter in store.letters"
+            :key="letter.sign"
+            class="letter"
+            :to="{ name: 'Letter', params: { letter: letter.sign } }">
+        <h3>
+          {{letter.sign}}
+        </h3>
+
+        <div class="subtext">
+          {{letter.count}} definitions
+        </div>
+      </RouterLink>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useDefinitionsStore } from '@/stores/definitions.js'
+import Loading from '@/components/Loading.vue'
+
 const store = useDefinitionsStore()
+
+const total_definitions = computed(() => {
+  if (store.letters) {
+    return store.letters.reduce((acc, letter) => acc + letter.count, 0)
+  } else {
+    return 7857
+  }
+})
 </script>
 
 <style lang="scss" scoped>
+.total-title {
+  text-align: right;
+  margin: 20px 0;
+}
+
 .letters {
   display: flex;
   flex-direction: row-reverse;
