@@ -18,10 +18,10 @@ const letters_hash = dictionnary.reduce((letters, definition) => {
 }, {})
 
 const letters = Object.entries(letters_hash).map((letter_and_count) => {
-  const sign = letter_and_count[0]
+  const character = letter_and_count[0]
   const count = letter_and_count[1]
-  return { sign, count }
-}).sort((a, b) => letters_order.indexOf(a.sign) - letters_order.indexOf(b.sign))
+  return { character, count }
+}).sort((a, b) => letters_order.indexOf(a.character) - letters_order.indexOf(b.character))
 
 console.log(`${Object.keys(letters).length} letters loaded`)
 
@@ -39,9 +39,9 @@ export default {
   letters () {
     return letters
   },
-  async definitions_of_letter (sign) {
+  async definitions_of_letter (character) {
     let definitions = dictionnary.filter((definition) => {
-      return definition.letter === sign
+      return definition.letter === character
     })
 
     return definitions

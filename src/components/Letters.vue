@@ -8,11 +8,11 @@
 
     <div class="letters">
       <RouterLink  v-for="letter in store.letters"
-            :key="letter.sign"
+            :key="letter.character"
             class="letter"
-            :to="{ name: 'Letter', params: { letter: letter.sign } }">
+            :to="{ name: 'Letter', params: { letter: letter.character } }">
         <h3>
-          {{letter.sign}}
+          {{letter.character}}
         </h3>
 
         <div class="subtext">
