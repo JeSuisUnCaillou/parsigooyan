@@ -18,10 +18,10 @@ export default (app) => {
     })
   })
 
-  app.get('/api/letter/:sign', async (req, res) => {
+  app.get('/api/letter/:character', async (req, res) => {
     console.log('GET ' + req.url)
     res.send({
-      definitions: await dictionnary.definitions_of_letter(req.params.sign)
+      definitions: await dictionnary.definitions_of_letter(req.params.character)
     })
   })
 }

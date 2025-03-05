@@ -13,7 +13,7 @@ export const useDefinitionsStore = defineStore('definitions', {
   getters: {
     totalNbDefinitionsOfLetter: () => (letter) => {
       if (this.letters) {
-        return this.letters.find(h => h.sign === letter).count
+        return this.letters.find(h => h.character === letter).count
       } else {
         return 0
       }

@@ -38,11 +38,11 @@ function closeMenu () {
       </RouterLink>
 
       <RouterLink  v-for="letter in store.letters"
-                    :key="letter.sign"
+                    :key="letter.character"
                     class="letter-link"
-                    :to="{ name: 'Letter', params: { letter: letter.sign } }"
+                    :to="{ name: 'Letter', params: { letter: letter.character } }"
                     @click.native="closeMenu">
-        {{letter.sign}} <span class="letter-count">({{letter.count}} definitions)</span>
+        {{letter.character}} <span class="letter-count">({{letter.count}} definitions)</span>
       </RouterLink>
 
       <NavFooter />
