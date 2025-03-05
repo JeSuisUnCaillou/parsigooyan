@@ -39,7 +39,7 @@ export default {
   letters () {
     return letters
   },
-  async definitions_of_letter (sign, user_id) {
+  async definitions_of_letter (sign) {
     let definitions = dictionnary.filter((definition) => {
       return definition.letter === sign
     })
