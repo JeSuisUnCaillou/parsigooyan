@@ -6,8 +6,8 @@ describe('dictionnary.letters()', () => {
     expect(dictionnary.letters().length).toBe(33)
   })
 
-  it('has 99 definitions for the first letter', () => {
-    expect(dictionnary.letters()[0]).toEqual({ character: 'آ', count: 99 })
+  it('has 97 definitions for the first letter', () => {
+    expect(dictionnary.letters()[0]).toEqual({ character: 'آ', count: 97 })
   })
 
   it('has the letters in the alphabetical order', () => {

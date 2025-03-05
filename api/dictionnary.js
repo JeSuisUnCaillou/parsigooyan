@@ -1,7 +1,7 @@
 import fs from 'fs'
 import farsi_search from './farsi_search.js'
 
-const filename = 'api/dictionnary_2021_06_07.json'
+const filename = 'api/dictionnary_2025_03_05.json'
 const dictionnary = JSON.parse(fs.readFileSync(filename))
 const search = farsi_search(dictionnary).fuzzy_search
 
