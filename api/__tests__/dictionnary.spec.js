@@ -9,6 +9,10 @@ describe('dictionnary.letters()', () => {
   it('has 99 definitions for the first letter', () => {
     expect(dictionnary.letters()[0]).toEqual({ sign: 'آ', count: 99 })
   })
+
+  it('has the letters in the alphabetical order', () => {
+    expect(dictionnary.letters().map(o => o.sign).join(' ')).toBe('آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی')
+  })
 })
 
 describe('dictionnary.definitions_of_letter()', () => {

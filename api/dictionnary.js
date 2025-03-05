@@ -6,8 +6,9 @@ const dictionnary = JSON.parse(fs.readFileSync(filename))
 const search = farsi_search(dictionnary).fuzzy_search
 
 console.log(`${dictionnary.length} words loaded`)
+const letters_order = 'آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی'
 
-const letters = dictionnary.reduce((letters, definition) => {
+const letters_hash = dictionnary.reduce((letters, definition) => {
   if(!(definition.letter in letters)) {
     letters[definition.letter] = 1
   } else {
@@ -15,6 +16,12 @@ const letters = dictionnary.reduce((letters, definition) => {
   }
   return letters
 }, {})
+
+const letters = Object.entries(letters_hash).map((letter_and_count) => {
+  const sign = letter_and_count[0]
+  const count = letter_and_count[1]
+  return { sign, count }
+}).sort((a, b) => letters_order.indexOf(a.sign) - letters_order.indexOf(b.sign))
 
 console.log(`${Object.keys(letters).length} letters loaded`)
 
@@ -30,13 +37,9 @@ export default {
     }
   },
   letters () {
-    return Object.entries(letters).map((letter_and_count) => {
-      const sign = letter_and_count[0]
-      const count = letter_and_count[1]
-      return { sign, count }
-    })
+    return letters
   },
-  async definitions_of_letter (sign, user_id) {
+  async definitions_of_letter (sign) {
     let definitions = dictionnary.filter((definition) => {
       return definition.letter === sign
     })

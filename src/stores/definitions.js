@@ -33,7 +33,7 @@ export const useDefinitionsStore = defineStore('definitions', {
     },
     async getLetters () {
       const result = await axios.get(`${backendUrl}api/letters`)
-      this.letters = result.data.letters.sort((a, b) => a.sign.localeCompare(b.sign))
+      this.letters = result.data.letters
     },
     async get_definitions_of_letter (params) {
       const { letter } = params
