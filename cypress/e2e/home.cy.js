@@ -35,6 +35,19 @@ describe('Home page', () => {
     cy.get('.footer').should('exist')
   })
 
+  it('should contain an article in the home', () => {
+    cy.get('.home').within(() => {
+      cy.get('a.document').should('exist')
+    })
+  })
+
+  it('should contain a link to /articles in the home', () => {
+    cy.get('.home').within(() => {
+      cy.get('a[href="/articles"]').should('exist')
+      cy.contains('a[href="/articles"]', 'نوشتارهای بیشتری را ببینید')
+    })
+  })
+
   describe('Burger menu', () => {
     beforeEach(() => {
       cy.get('.burger').click()
