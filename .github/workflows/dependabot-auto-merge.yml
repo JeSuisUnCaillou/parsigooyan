@@ -1,47 +1,47 @@
-name: Auto-merge Dependabot PRs
+# name: Auto-merge Dependabot PRs
 
-on: pull_request_target
+# on: pull_request_target
 
-jobs:
-  unit-tests:
-    if: github.actor == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "23.8.0"
-      - name: Install dependencies
-        run: npm ci
-      - name: Unit tests
-        run: npm run test:unit
+# jobs:
+#   unit-tests:
+#     if: github.actor == 'dependabot[bot]'
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Setup Node
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: "23.8.0"
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Unit tests
+#         run: npm run test:unit
 
-  e2e-tests:
-    if: github.actor == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "23.8.0"
-      - name: Install dependencies
-        run: npm ci
-      - name: Build for E2E tests
-        run: npm run build
-      - name: E2E tests
-        run: npm run test:e2e
+#   e2e-tests:
+#     if: github.actor == 'dependabot[bot]'
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Setup Node
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: "23.8.0"
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Build for E2E tests
+#         run: npm run build
+#       - name: E2E tests
+#         run: npm run test:e2e
 
-  auto-approve:
-    if: github.actor == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    needs: 
-      - unit-tests
-      - e2e-tests
-    steps:
-      - name: Auto-merge for Dependabot PRs
-        run: gh pr merge --auto --merge "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+#   auto-approve:
+#     if: github.actor == 'dependabot[bot]'
+#     runs-on: ubuntu-latest
+#     needs: 
+#       - unit-tests
+#       - e2e-tests
+#     steps:
+#       - name: Auto-merge for Dependabot PRs
+#         run: gh pr merge --auto --merge "$PR_URL"
+#         env:
+#           PR_URL: ${{github.event.pull_request.html_url}}
+#           GITHUB_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
