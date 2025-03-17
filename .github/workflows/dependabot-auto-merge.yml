@@ -36,9 +36,7 @@ jobs:
     # needs: 
     #   - unit-tests
     #   - e2e-tests
-    permissions:
-      pull-requests: write
     steps:
       - uses: hmarr/auto-approve-action@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
