@@ -47,8 +47,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Auto-merge for Dependabot PRs
         run: |
-          gh pr view $PR_NUMBER
-          gh pr merge --auto "$PR_NUMBER"
+          gh pr comment $PR_NUMBER --body "@dependabot merge"
         env:
           PR_NUMBER: ${{github.event.pull_request.number}}
           GH_TOKEN: ${{ github.token }}
