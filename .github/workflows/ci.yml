@@ -41,6 +41,8 @@ jobs:
     needs: 
       - unit-tests
       - e2e-tests
+    permissions:
+      pull-requests: write
     steps:
       - name: Auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
