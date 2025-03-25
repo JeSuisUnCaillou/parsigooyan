@@ -46,6 +46,14 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Debug Token
+        run: |
+          echo "Token length: ${#GH_TOKEN}"
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Error: GH_TOKEN is empty!"
+          else
+            echo "GH_TOKEN is set (length: ${#GH_TOKEN})"
+          fi
       - name: Auto-merge for Dependabot PRs
         run: |
           gh pr comment $PR_NUMBER --body "@dependabot merge"
