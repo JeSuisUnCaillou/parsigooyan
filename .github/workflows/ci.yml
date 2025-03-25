@@ -51,4 +51,4 @@ jobs:
           gh pr comment $PR_NUMBER --body "@dependabot merge"
         env:
           PR_NUMBER: ${{github.event.pull_request.number}}
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
