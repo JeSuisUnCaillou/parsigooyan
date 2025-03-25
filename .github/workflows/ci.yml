@@ -45,15 +45,10 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v3
-      - name: Debug Info
-        run: |
-          echo "PR Number: ${{github.event.pull_request.number}}"
-          echo "Actor: ${{github.actor}}"
-          echo "Event: ${{github.event_name}}"
       - name: Auto-merge for Dependabot PRs
         run: |
           gh pr view $PR_NUMBER
-          gh pr merge --auto --merge "$PR_NUMBER"
+          gh pr merge --auto "$PR_NUMBER"
         env:
           PR_NUMBER: ${{github.event.pull_request.number}}
           GH_TOKEN: ${{ github.token }}
