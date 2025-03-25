@@ -46,6 +46,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - name: Debug Secrets
+        run: |
+          echo "Available secrets:"
+          for secret in $(env | grep -i secret); do
+            echo "Found secret: ${secret%%=*}"
+          done
       - name: Debug Token
         run: |
           echo "Token length: ${#GH_TOKEN}"
