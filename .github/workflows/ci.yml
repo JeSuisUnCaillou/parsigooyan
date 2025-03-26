@@ -57,6 +57,7 @@ jobs:
           echo "Checking secret access:"
           if [ -n "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
             echo "PERSONAL_ACCESS_TOKEN is set"
+            echo "Token value: ${{ secrets.PERSONAL_ACCESS_TOKEN }}"
           else
             echo "PERSONAL_ACCESS_TOKEN is not set"
           fi
@@ -64,6 +65,8 @@ jobs:
           for secret in $(env | grep -i secret); do
             echo "Found secret: ${secret%%=*}"
           done
+          echo "Checking all environment variables:"
+          env | sort
       - name: Debug Token
         run: |
           echo "Token length: ${#GH_TOKEN}"
