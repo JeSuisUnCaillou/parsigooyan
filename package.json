@@ -17,24 +17,24 @@
   },
   "dependencies": {
     "connect-history-api-fallback": "^2.0.0",
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "fuse.js": "^7.1.0",
     "pinia": "^3.0.1",
     "vue": "^3.5.13",
-    "vue-gtag": "^2.1.0",
+    "vue-gtag": "^3.3.0",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^5.2.3",
     "@vue/test-utils": "^2.4.6",
     "cors": "^2.8.5",
-    "cypress": "^14.1.0",
+    "cypress": "^14.2.1",
     "jsdom": "^26.0.0",
-    "sass-embedded": "^1.85.1",
-    "start-server-and-test": "^2.0.10",
-    "vite": "^6.2.0",
-    "vite-plugin-pwa": "^0.21.1",
+    "sass-embedded": "^1.86.3",
+    "start-server-and-test": "^2.0.11",
+    "vite": "^6.2.5",
+    "vite-plugin-pwa": "^1.0.0",
     "vite-plugin-vue-devtools": "^7.7.1",
-    "vitest": "^3.0.7"
+    "vitest": "^3.1.1"
   }
 }
