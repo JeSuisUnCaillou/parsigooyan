@@ -30,7 +30,7 @@
     "cors": "^2.8.5",
     "cypress": "^14.3.2",
     "jsdom": "^26.1.0",
-    "sass-embedded": "^1.87.0",
+    "sass-embedded": "^1.88.0",
     "start-server-and-test": "^2.0.11",
     "vite": "^6.3.5",
     "vite-plugin-pwa": "^1.0.0",
