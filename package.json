@@ -19,7 +19,7 @@
     "connect-history-api-fallback": "^2.0.0",
     "express": "^5.1.0",
     "fuse.js": "^7.1.0",
-    "pinia": "^3.0.2",
+    "pinia": "^3.0.3",
     "vue": "^3.5.16",
     "vue-gtag": "^3.5.1",
     "vue-router": "^4.5.1"
