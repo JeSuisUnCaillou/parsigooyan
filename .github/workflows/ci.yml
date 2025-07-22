@@ -46,9 +46,18 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Auto-merge for Dependabot PRs
-        run: |
-          gh pr comment $PR_NUMBER --body "@dependabot merge"
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Merge Dependabot PR
+        run: gh pr merge $PR_NUMBER --merge --delete-branch
         env:
           PR_NUMBER: ${{github.event.pull_request.number}}
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Merge develop into main
+        run: |
+          git fetch origin
+          git checkout main
+          git pull origin main
+          git merge origin/develop
+          git push origin main
