@@ -49,6 +49,10 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Configure Git
+        run: |
+          git config --global user.name "dependabot[bot]"
+          git config --global user.email "dependabot[bot]@users.noreply.github.com"
       - name: Merge Dependabot PR
         run: gh pr merge $PR_NUMBER --merge --delete-branch
         env:
