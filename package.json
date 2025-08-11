@@ -28,7 +28,7 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/test-utils": "^2.4.6",
     "cors": "^2.8.5",
-    "cypress": "^14.5.3",
+    "cypress": "^14.5.4",
     "jsdom": "^26.1.0",
     "sass-embedded": "^1.90.0",
     "start-server-and-test": "^2.0.13",
