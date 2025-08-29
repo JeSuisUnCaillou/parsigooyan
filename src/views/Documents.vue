@@ -65,12 +65,12 @@ const documents = [
 </script>
 
 <template>
-  <div>
+  <div class="documents-container">
     <h1>
-      Articles écrits en Farsi sans mots étrangers
+      مقالات نوشته شده به زبان فارسی و بدون کلمات خارجی
     </h1>
     <p>
-      Voici une liste d'articles écrits en Farsi sans mots étrangers.
+      تمام این مقالات به فارسی خالص نوشته شده‌اند تا مثال‌های ملموسی برای خواندن داشته باشید.
     </p>
 
     <div class="documents">
@@ -94,6 +94,10 @@ const documents = [
 
 <style scoped lang="scss">
 $document-gap: 50px;
+
+.documents-container {
+  text-align: right;
+}
 
 .documents {
   margin: 50px 0;
@@ -128,15 +132,6 @@ $document-gap: 50px;
 
 .document-text {
   padding: 20px;
-  text-align: right;
-}
-
-.document-title {
-  // text-align: right;
-}
-
-.document-description {
-  // text-align: right;
 }
 
 .read-more {
