@@ -22,7 +22,7 @@ const documents = [
   {
     title: "به یاد استاد سخن فردوسی بزرگ",
     file: "2021 05 FERDOWSI.pdf",
-    picture: "2021 05 FERDOWSI.jpeg",
+    picture: "Faravahar-Gold.svg",
     description: "کلک (قلم) به دست گرفنت و نوشنت در باره ی استاد فردوسی بزرگ دلیری و توان بسیار می خواهد که من این توان را در خود نمی بینم. ولی از آنجا که روز ۲۵ اردیبهشت ماه که امسال برابر می شود با ۱۵ ماه مه ۲۰۲۱، به نام این بزرگوار و روز پاسداشت زبان پارسی برگزیده شده است"
   },
   {
@@ -52,7 +52,7 @@ const documents = [
   {
     title: "بانو توران شهریاری (بهرامی)",
     file: "بانو توران شهریاری.pdf",
-    picture: "بانو توران شهریاری.jpeg",
+    picture: "Faravahar-Gold.svg",
     description: "بانو توران شهریاری (بهرامی) یکی از زناِن سراینده ی ایرانی است که مایه ی سرفراز ِی همه، به ویژه ما بانواِن ایرانی تبار می باشد. او از هم میهناِن زرتشتی ما می باشد"
   },
   {
@@ -79,7 +79,7 @@ const documents = [
             :href="`documents/${document.file}`"
             target="_blank"
             class="document">
-        <img :src="`document_pictures/${document.picture}`" alt="document.title" class="document-picture" />
+        <img :src="`/document_pictures/${document.picture}`" alt="document.title" class="document-picture" />
         <div class="document-text">
           <h2 class="document-title">{{ document.title }}</h2>
           <p v-if="document.description" class="document-description">
