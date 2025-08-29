@@ -5,7 +5,7 @@ const documents = [
     title: "اشردان راشفا",
     file: "نادر شاه افشار.pdf",
     picture: "نادر شاه افشار.jpeg",
-    description: ""
+    description: "در تاریخ ها آمده است که در جهان دو سردا ِر سرشناس هستند که در شایستگی و آشنا بود ِن به زیر و َبمِ جنگاوری نمونه می باشند"
   },
   {
     title: "محمد علی فروغی",
@@ -37,18 +37,21 @@ const documents = [
             :href="`documents/${document.file}`"
             target="_blank"
             class="document">
-        <h2>{{ document.title }}</h2>
         <img :src="`document_pictures/${document.picture}`" alt="document.title" class="document-picture" />
-        <p v-if="document.description">
-          {{ document.description }}
-        </p>
+        <div class="document-text">
+          <h2 class="document-title">{{ document.title }}</h2>
+          <p v-if="document.description" class="document-description">
+            {{ document.description }} ... 
+            <span class="read-more">بیشتر بخوانید</span>
+          </p>
+        </div>
       </a>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-$document-gap: 30px;
+$document-gap: 50px;
 
 .documents {
   margin: 50px 0;
@@ -61,10 +64,10 @@ $document-gap: 30px;
 }
 
 .document {
-  text-align: center;
-  background-color: $light-gray;
+  width: 100%;
+  // background-color: $light-gray;
   color: $bg-color;
-  // padding: 10px;
+  padding-bottom: 20px;
 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -75,18 +78,28 @@ $document-gap: 30px;
 }
 
 .document-picture {
-  width: calc(($content-width - 40px - $document-gap)/2);
+  width: 100%;
   height: 350px;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 
-@media (max-width: 576px) {
-  .document {
-    width: 100%;
-  }
-  .document-picture {
-    width: 100%;
-  }
+.document-text {
+  padding: 20px;
+  text-align: right;
 }
+
+.document-title {
+  // text-align: right;
+}
+
+.document-description {
+  // text-align: right;
+}
+
+.read-more {
+  color: blue;
+  text-decoration: underline;
+}
+
 </style>
