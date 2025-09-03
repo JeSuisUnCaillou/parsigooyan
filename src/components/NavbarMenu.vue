@@ -37,6 +37,14 @@ function closeMenu () {
         </span>
       </RouterLink>
 
+      <RouterLink :to="{ name: 'Documents' }"
+                    class="menu-item menu-link"
+                    @click.native="closeMenu">
+        <span class="menu-item-title">
+          مقالات 📰
+        </span>
+      </RouterLink>
+
       <RouterLink  v-for="letter in store.letters"
                     :key="letter.character"
                     class="letter-link"
@@ -115,6 +123,7 @@ function closeMenu () {
   padding: 0 20px;
   margin-bottom: 20px;
   color: $txt-color;
+  display: block;
 }
 
 .margin-top {
@@ -133,7 +142,7 @@ function closeMenu () {
  font-size: 1.5rem;
 }
 
-.letter-link {
+.menu-link {
   padding: 10px 0px 10px 30px;
   color: $txt-color;
   display: block;
@@ -142,7 +151,11 @@ function closeMenu () {
     background-color: #EEEEEF;
     color: $bg-color;
   }
+}
 
+.letter-link {
+  @extend .menu-link;
+  
   .letter-count {
     color: gray;
     margin-left: 10px;

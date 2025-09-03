@@ -1,6 +1,7 @@
 <script setup>
 import Letters from '@/components/Letters.vue'
-import SearchBar from '@/components/SearchBar.vue';
+import SearchBar from '@/components/SearchBar.vue'
+import Document from '@/components/Document.vue'
 
 const examples = [
   {
@@ -16,6 +17,13 @@ const examples = [
     farsi_word: "خدا نگهدار یا بدرود"
   },
 ]
+
+const document = {
+  title: "جشن تیرگان",
+  file: "تیرگان .pdf",
+  picture: "تیرگان .jpeg",
+  description: "تاریخ ایران باستان ُپر است از جشن ها و آیین هایی که هر یک داستانی شنیدنی دارد. جشن تیرگان یکی از ِمهین ترین این جشن ها می باشد، که در تیرماه برگزار می شود"
+}
 </script>
 
 <template>
@@ -73,7 +81,21 @@ const examples = [
     </div>
 
     <h2 class="explore-title section-title">
-      فرهنگ لغت را کاوش کنید
+      نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
+    </h2>
+
+    <Document :document="document" />
+
+    <p class="read-more-container">
+      <RouterLink to="/articles" class="read-more">
+        <button class="read-more-button">
+          نوشتارهای بیشتری را ببینید
+        </button>
+      </RouterLink>
+    </p>
+
+    <h2 class="explore-title section-title">
+      فرهنگ‌ واژه ها را جستجو کنید
     </h2>
 
     <SearchBar class="search-container"/>
@@ -175,6 +197,7 @@ const examples = [
 
   @media screen and (max-width: 576px) {
     width: 100%;
+    padding: 20px
   }
 }
 
@@ -185,10 +208,33 @@ const examples = [
 .word {
   padding: 20px;
   font-size: 1.8rem;
+
+  @media screen and (max-width: 576px) {
+    padding: 10px;
+    font-size: 1.2rem;
+  }
 }
 
 .search-container {
   margin: 30px 0;
 }
 
+.read-more-container {
+  margin-top: 30px;
+}
+
+.read-more-button {
+  background-color: $bg-gold;
+  color: white;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $bg-gold-light;
+  }
+}
 </style>
