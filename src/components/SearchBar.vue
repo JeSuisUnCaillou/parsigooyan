@@ -55,6 +55,7 @@ function clearSearch() {
   height: 100%;
   max-height: $navbar-height;
   flex-grow: 1;
+  height: $navbar-height;
 }
 
 .search-bar {
@@ -106,5 +107,9 @@ function clearSearch() {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.search-icon-container:hover {
+  background-color: $lighter;
 }
 </style>
