@@ -1,6 +1,5 @@
 <template>
-  <a :href="`documents/${document.file}`"
-     target="_blank"
+  <a :href="`/documents/${document.file}`"
      class="document">
     <img :src="`/document_pictures/${document.picture}`" 
          :alt="document.title" 
