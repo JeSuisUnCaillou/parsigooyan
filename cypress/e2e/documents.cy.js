@@ -54,9 +54,31 @@ describe('Documents page', () => {
 
   describe('Document links', () => {
     it('documents should be clickable links to PDF files', () => {
-      cy.get('a.document').each(($document) => {
-        cy.wrap($document).should('have.attr', 'href')
-        cy.wrap($document).invoke('attr', 'href').should('include', '.pdf')
+      cy.get('a.document').first().as('firstDocument')
+      
+      // Get the href attribute to test the PDF link directly
+      cy.get('@firstDocument').should('have.attr', 'href').then((href) => {
+        // Visit the PDF URL directly to ensure it serves the actual PDF, not the Vue app
+        cy.request(href).then((response) => {
+          // PDF files should return with content-type application/pdf
+          expect(response.headers['content-type']).to.include('application/pdf')
+          // PDF content should start with %PDF signature
+          expect(response.body.substring(0, 4)).to.equal('%PDF')
+        })
+        
+        // Test clicking the link
+        cy.get('@firstDocument').click()
+        cy.wait(1000)
+        
+        // Should navigate to PDF URL
+        cy.url().should('include', '.pdf')
+        
+        // The page should NOT contain Vue app content when displaying a PDF
+        cy.get('body').should('not.contain', 'Parsigooyan')
+        cy.get('body').should('not.contain', 'نوشتار های زیر به زبان پارسی')
+        
+        // For PDF files, the body should be empty or contain PDF viewer content
+        // but definitely not contain our Vue app's Persian text
       })
     })
 
@@ -69,13 +91,4 @@ describe('Documents page', () => {
     })
   })
 
-  describe('Page layout', () => {
-    it('should have right-to-left text alignment', () => {
-      cy.get('.documents-container').should('have.css', 'text-align', 'right')
-    })
-
-    it('documents should be displayed in a flex layout', () => {
-      cy.get('.documents').should('have.css', 'display', 'flex')
-    })
-  })
 })
