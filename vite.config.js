@@ -12,7 +12,7 @@ export default defineConfig({
     VitePWA({ 
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
-      workbox: { globPatterns: ['**/*.{js,css,html,ico,png,svg}'] },
+      workbox: { globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,jpeg,jpg}'] },
       includeAssets: ['/logo_bouquetin_150x150.png'],
       manifest: {
         name: 'Parsigooyan',
