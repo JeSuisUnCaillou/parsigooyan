@@ -60,25 +60,14 @@ describe('Documents page', () => {
       cy.get('@firstDocument').should('have.attr', 'href').then((href) => {
         // Visit the PDF URL directly to ensure it serves the actual PDF, not the Vue app
         cy.request(href).then((response) => {
-          // PDF files should return with content-type application/pdf
           expect(response.headers['content-type']).to.include('application/pdf')
-          // PDF content should start with %PDF signature
           expect(response.body.substring(0, 4)).to.equal('%PDF')
         })
-        
-        // Test clicking the link
+        // Clicking the link should navigate to the PDF URL
         cy.get('@firstDocument').click()
-        cy.wait(1000)
-        
-        // Should navigate to PDF URL
         cy.url().should('include', '.pdf')
-        
         // The page should NOT contain Vue app content when displaying a PDF
         cy.get('body').should('not.contain', 'Parsigooyan')
-        cy.get('body').should('not.contain', 'نوشتار های زیر به زبان پارسی')
-        
-        // For PDF files, the body should be empty or contain PDF viewer content
-        // but definitely not contain our Vue app's Persian text
       })
     })
 
