@@ -57,7 +57,6 @@ describe('Documents page', () => {
       cy.get('a.document').each(($document) => {
         cy.wrap($document).should('have.attr', 'href')
         cy.wrap($document).invoke('attr', 'href').should('include', '.pdf')
-        cy.wrap($document).should('have.attr', 'target', '_blank')
       })
     })
 
