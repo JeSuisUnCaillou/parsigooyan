@@ -34,7 +34,7 @@ const total_definitions = computed(() => {
   if (store.letters) {
     return store.letters.reduce((acc, letter) => acc + letter.count, 0)
   } else {
-    return 7857
+    return 7715
   }
 })
 </script>
