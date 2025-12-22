@@ -2,7 +2,7 @@
   <div class="word-of-the-day-card center-content right-to-left">
     <div class="word-of-the-day-header">
       <h2 class="word-of-the-day-title">واژه روز</h2>
-      <span class="word-of-the-day-subtitle">هر روز یک واژه تازه برای یادگیری</span>
+      <span class="word-of-the-day-subtitle">هر روز یک واژه پارسی را جایگزین کنیم</span>
     </div>
 
     <ExampleCard
