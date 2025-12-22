@@ -6,6 +6,14 @@ import Documents from '../views/Documents.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    // If the user used browser back/forward, restore their position
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Otherwise, scroll to top
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
