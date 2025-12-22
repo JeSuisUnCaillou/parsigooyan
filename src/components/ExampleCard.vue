@@ -1,5 +1,5 @@
 <template>
-  <div class="example-card right-to-left" :class="{ animating }">
+  <div class="example-card right-to-left" :class="{ animating, vertical: isVertical }">
     <span class="rotating-word-text foreign-word">
       {{ foreignWord }}
     </span>
@@ -11,7 +11,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   farsiWord: {
     type: String,
     required: true
@@ -24,6 +26,10 @@ defineProps({
     type: Boolean,
     default: false
   }
+})
+
+const isVertical = computed(() => {
+  return props.farsiWord.length > 15 || props.foreignWord.length > 15
 })
 </script>
 
@@ -45,6 +51,17 @@ defineProps({
     opacity: 0;
     transform: scale(0.95);
   }
+
+  &.vertical {
+    flex-direction: column;
+    text-align: center;
+
+    .arrow-icon {
+      transform: rotate(-90deg);
+      margin: 15px 0;
+      animation: arrowPulseVertical 2s ease-in-out infinite;
+    }
+  }
 }
 
 .arrow-icon {
@@ -56,6 +73,11 @@ defineProps({
 @keyframes arrowPulse {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(-5px); }
+}
+
+@keyframes arrowPulseVertical {
+  0%, 100% { transform: rotate(-90deg) translateX(0); }
+  50% { transform: rotate(-90deg) translateX(-5px); }
 }
 
 .rotating-word-text {
