@@ -6,7 +6,8 @@ describe('Home page', () => {
   })
 
   it('displays the home page', () => {
-    cy.contains('h1', 'Parsigooyan')
+    cy.get('.home').should('exist')
+    cy.get('.hero h1').should('exist')
   })
 
   it('displays the navbar search', () => {
@@ -26,7 +27,7 @@ describe('Home page', () => {
   })
 
   it('should contain 33 letters in the main page', () => {
-    cy.get('.home.content').within(() => {
+    cy.get('.letters-section').within(() => {
       cy.get('a.letter').should('have.length', 33)
     })
   })
@@ -45,6 +46,26 @@ describe('Home page', () => {
     cy.get('.home').within(() => {
       cy.get('a[href="/articles"]').should('exist')
       cy.contains('a[href="/articles"]', 'نوشتارهای بیشتری را ببینید')
+    })
+  })
+
+  describe('Word of the day', () => {
+    it('displays the word of the day section', () => {
+      cy.get('.word-of-the-day-card').should('exist')
+    })
+
+    it('displays the word of the day title', () => {
+      cy.get('.word-of-the-day-card').within(() => {
+        cy.contains('h2', 'واژه روز')
+      })
+    })
+
+    it('displays an example card with farsi and foreign words', () => {
+      cy.get('.word-of-the-day-card').within(() => {
+        cy.get('.example-card').should('exist')
+        cy.get('.farsi-word').should('exist').and('not.be.empty')
+        cy.get('.foreign-word').should('exist').and('not.be.empty')
+      })
     })
   })
 

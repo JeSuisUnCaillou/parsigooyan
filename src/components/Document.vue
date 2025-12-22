@@ -32,6 +32,8 @@ defineProps({
   padding-bottom: 20px;
   text-align: right;
   display: block;
+  background-color: white;
+  border-radius: 15px;
 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -46,6 +48,8 @@ defineProps({
   height: 350px;
   object-fit: cover;
   object-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .document-text {

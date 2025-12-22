@@ -20,9 +20,12 @@ html, body {
 
 .content {
   padding: 20px;
-  max-width: $content-width;
   margin: 0 auto;
+  width: 100%;
+  max-width: $content-width;
   margin-top: $navbar-height;
+}
+.content-min-height {
   min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 }
 
@@ -47,6 +50,20 @@ a {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.secondary-button {
+  background-color: white;
+  border: 2px solid $bg-gold;
+  color: $bg-gold;
+  padding: 10px 50px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.secondary-button:hover {
+  background-color: $bg-gold;
+  color: white;
+}
+
 .green-text {
   color: $green;
   font-weight: bold;
@@ -60,3 +77,35 @@ a {
   text-align: right;
   direction: rtl;
 }
+
+// Fade-in animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-1 { animation-delay: 0s; }
+.fade-in-2 { animation-delay: 0.15s; opacity: 0; }
+.fade-in-3 { animation-delay: 0.3s; opacity: 0; }
+.fade-in-4 { animation-delay: 0.45s; opacity: 0; }
+.fade-in-5 { animation-delay: 0.6s; opacity: 0; }
+.fade-in-6 { animation-delay: 0.75s; opacity: 0; }
+.fade-in-7 { animation-delay: 0.9s; opacity: 0; }
+.fade-in-8 { animation-delay: 1.05s; opacity: 0; }
+.fade-in-9 { animation-delay: 1.2s; opacity: 0; }
+.fade-in-10 { animation-delay: 1.35s; opacity: 0; }
+.fade-in-11 { animation-delay: 1.5s; opacity: 0; }
+.fade-in-12 { animation-delay: 1.65s; opacity: 0; }
+.fade-in-13 { animation-delay: 1.8s; opacity: 0; }
+.fade-in-14 { animation-delay: 1.95s; opacity: 0; }
+.fade-in-15 { animation-delay: 2.1s; opacity: 0; }

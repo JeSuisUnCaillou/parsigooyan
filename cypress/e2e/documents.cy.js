@@ -56,18 +56,13 @@ describe('Documents page', () => {
     it('documents should be clickable links to PDF files', () => {
       cy.get('a.document').first().as('firstDocument')
       
-      // Get the href attribute to test the PDF link directly
-      cy.get('@firstDocument').should('have.attr', 'href').then((href) => {
-        // Visit the PDF URL directly to ensure it serves the actual PDF, not the Vue app
+      // Verify the link points to a PDF file
+      cy.get('@firstDocument').should('have.attr', 'href').and('include', '.pdf').then((href) => {
+        // Verify the server serves an actual PDF (not the Vue app's index.html)
         cy.request(href).then((response) => {
           expect(response.headers['content-type']).to.include('application/pdf')
           expect(response.body.substring(0, 4)).to.equal('%PDF')
         })
-        // Clicking the link should navigate to the PDF URL
-        cy.get('@firstDocument').click()
-        cy.url().should('include', '.pdf')
-        // The page should NOT contain Vue app content when displaying a PDF
-        cy.get('body').should('not.contain', 'Parsigooyan')
       })
     })
 

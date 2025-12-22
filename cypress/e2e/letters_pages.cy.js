@@ -12,7 +12,7 @@ describe('Letters pages', () => {
   describe('Clicking on a letter in the home', () => {
     beforeEach(() => {
       cy.visit('/')
-      cy.get('.home.content').within(() => {
+      cy.get('.letters-section').within(() => {
         cy.contains('a', 'ظ').click()
       })
     })

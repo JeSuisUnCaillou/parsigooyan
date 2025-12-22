@@ -4,7 +4,7 @@
 
     <div  v-for="(definition, index) in definitions"
           :key="index"
-          class="definition">
+          :class="`definition fade-in fade-in-${index + 2}`">
       <div class="title">
         <h2 class="foreign-word" :with-explanation="definition.explanation">
           {{definition.foreign_word}}

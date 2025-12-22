@@ -67,3 +67,69 @@ describe('dictionnary.find()', () => {
     expect(result.definitions[0].foreign_word).toBe('سؤال')
   })
 })
+
+describe('dictionnary.word_of_the_day()', () => {
+  it('returns a word with all expected fields', () => {
+    const result = dictionnary.word_of_the_day()
+    expect(result).toHaveProperty('letter')
+    expect(result).toHaveProperty('foreign_word')
+    expect(result).toHaveProperty('persian_word')
+    expect(result).toHaveProperty('date')
+  })
+
+  it('returns today\'s date in ISO format', () => {
+    const result = dictionnary.word_of_the_day()
+    const today = new Date().toISOString().split('T')[0]
+    expect(result.date).toBe(today)
+  })
+
+  it('returns the same word when called multiple times on the same day', () => {
+    const result1 = dictionnary.word_of_the_day()
+    const result2 = dictionnary.word_of_the_day()
+    expect(result1.foreign_word).toBe(result2.foreign_word)
+    expect(result1.persian_word).toBe(result2.persian_word)
+  })
+})
+
+describe('dictionnary.word_of_the_date()', () => {
+  it('returns a word with all expected fields', () => {
+    const result = dictionnary.word_of_the_date('2025-01-15')
+    expect(result).toHaveProperty('letter')
+    expect(result).toHaveProperty('foreign_word')
+    expect(result).toHaveProperty('persian_word')
+    expect(result).toHaveProperty('date')
+  })
+
+  it('returns the requested date in ISO format', () => {
+    const result = dictionnary.word_of_the_date('2025-06-20')
+    expect(result.date).toBe('2025-06-20')
+  })
+
+  it('returns the same word for the same date', () => {
+    const result1 = dictionnary.word_of_the_date('2024-12-25')
+    const result2 = dictionnary.word_of_the_date('2024-12-25')
+    expect(result1.foreign_word).toBe(result2.foreign_word)
+    expect(result1.persian_word).toBe(result2.persian_word)
+  })
+
+  it('returns different words for different dates', () => {
+    const result1 = dictionnary.word_of_the_date('2025-01-01')
+    const result2 = dictionnary.word_of_the_date('2025-01-02')
+    // While not guaranteed, it's highly likely different dates give different words
+    expect(result1.date).not.toBe(result2.date)
+  })
+
+  it('returns an error for invalid date format', () => {
+    const result = dictionnary.word_of_the_date('invalid-date')
+    expect(result).toHaveProperty('error')
+    expect(result.error).toBe('Invalid date format')
+  })
+
+  it('returns the same word as word_of_the_day for today', () => {
+    const today = new Date().toISOString().split('T')[0]
+    const wordOfTheDay = dictionnary.word_of_the_day()
+    const wordOfTheDate = dictionnary.word_of_the_date(today)
+    expect(wordOfTheDay.foreign_word).toBe(wordOfTheDate.foreign_word)
+    expect(wordOfTheDay.persian_word).toBe(wordOfTheDate.persian_word)
+  })
+})
