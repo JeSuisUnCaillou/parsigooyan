@@ -74,10 +74,10 @@ describe('Word of the Date page', () => {
       cy.get('.today-button').should('not.exist')
     })
 
-    it('shows "go to today" button when on a past date', () => {
+    it('shows "today" button when on a past date', () => {
       cy.contains('button', 'پیشین').click()
       cy.get('.today-button').should('exist')
-      cy.contains('button', 'برو به امروز')
+      cy.contains('button', 'امروز')
     })
 
     it('navigates back to today when clicking the "go to today" button', () => {
