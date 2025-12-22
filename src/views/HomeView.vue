@@ -197,7 +197,7 @@ const document = {
 }
 
 .read-more-container {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .read-more-button {
