@@ -12,7 +12,14 @@ export default defineConfig({
     VitePWA({ 
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
-      workbox: { globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,jpeg,jpg}'] },
+      workbox: { 
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,pdf,jpeg,jpg}'],
+        // Force the new service worker to take control immediately
+        skipWaiting: true,
+        clientsClaim: true,
+        // Clean up old precaches
+        cleanupOutdatedCaches: true,
+      },
       includeAssets: ['/logo_bouquetin_150x150.png'],
       manifest: {
         name: 'Parsigooyan',

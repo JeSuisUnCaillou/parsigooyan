@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="content content-min-height">
     <back-button position="top" />
 
-    <h1>{{route.params.letter}}</h1>
+    <h1 class="fade-in fade-in-1">{{route.params.letter}}</h1>
 
     <Definitions :definitions="definitions"/>
 

@@ -34,14 +34,14 @@ const total_definitions = computed(() => {
   if (store.letters) {
     return store.letters.reduce((acc, letter) => acc + letter.count, 0)
   } else {
-    return 7857
+    return 7715
   }
 })
 </script>
 
 <style lang="scss" scoped>
 .total-title {
-  text-align: right;
+  // text-align: right;
   margin: 20px 0;
 }
 

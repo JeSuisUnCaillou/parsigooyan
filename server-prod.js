@@ -32,6 +32,13 @@ routes(app)
 
 // Static frontend
 app.use(history())
+
+// Prevent caching of service worker so browser always checks for updates
+app.use('/sw.js', (req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache')
+  next()
+})
+
 app.use('/', express.static(path.join(process.cwd(), 'dist')))
 
 const server = app.listen(port, () => {
