@@ -19,7 +19,7 @@ const examples = [
   {
     // bye
     foreign_word: "خداحافظ",
-    farsi_word: "خدا نگهدار یا بدرود"
+    farsi_word: "بدرود"
   },
   {
     // thanks
