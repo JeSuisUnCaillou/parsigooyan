@@ -7,7 +7,8 @@ export const useDefinitionsStore = defineStore('definitions', {
     searchQuery: null,
     definitions: null,
     nbDefinitions: null,
-    letters: null
+    letters: null,
+    wordOfTheDay: null
   }),
 
   getters: {
@@ -39,6 +40,10 @@ export const useDefinitionsStore = defineStore('definitions', {
       const { letter } = params
       const result = await axios.get(`${backendUrl}api/letter/${letter}`)
       return result.data.definitions
+    },
+    async fetchWordOfTheDay () {
+      const result = await axios.get(`${backendUrl}api/word-of-the-day`)
+      this.wordOfTheDay = result.data
     }
   }
 })

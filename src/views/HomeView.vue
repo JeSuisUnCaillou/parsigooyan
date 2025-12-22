@@ -3,6 +3,7 @@ import Letters from '@/components/Letters.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import Document from '@/components/Document.vue'
 import RotatingExamples from '@/components/RotatingExamples.vue'
+import WordOfTheDay from '@/components/WordOfTheDay.vue'
 
 const examples = [
   {
@@ -70,7 +71,11 @@ const document = {
       </div>
     </section>
 
-    <section class="articles-section content fade-in fade-in-4">
+    <section class="word-of-the-day-section content fade-in fade-in-4">
+      <WordOfTheDay />
+    </section>
+
+    <section class="articles-section content fade-in fade-in-5">
       <h2 class="explore-title section-title">
         نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
       </h2>
@@ -86,7 +91,7 @@ const document = {
       </p>
     </section>
 
-    <section class="letters-section content fade-in fade-in-5">
+    <section class="letters-section content fade-in fade-in-6">
       <h2 class="explore-title section-title">
         فرهنگ‌ واژه ها را جستجو کنید
       </h2>
@@ -172,6 +177,11 @@ const document = {
 .small-search {
   width: 500px;
 }
+@media (max-width: 576px) {
+  .small-search {
+    width: 100%;
+  }
+}
 
 .search-container {
   margin: 30px 0;
@@ -196,5 +206,9 @@ const document = {
   &:hover {
     background-color: $bg-gold-light;
   }
+}
+
+.word-of-the-day-section {
+  text-align: center;
 }
 </style>
