@@ -32,7 +32,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .word-of-the-day-card {
-  max-width: 500px;
   margin: 0 auto;
   padding: 30px 40px;
   background: linear-gradient(135deg, rgba(213, 141, 51, 0.1) 0%, rgba(54, 52, 69, 0.05) 100%);
