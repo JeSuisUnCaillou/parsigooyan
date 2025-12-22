@@ -10,9 +10,7 @@
       :farsi-word="wordOfTheDay.persian_word"
       :foreign-word="wordOfTheDay.foreign_word"
     />
-    <div v-else>
-      <p>Loading...</p>
-    </div>
+    <Loading v-else class="loading" />
 
     <RouterLink :to="yesterdayLink" class="see-more-link">
       واژههای روز پیشین را ببینید
@@ -22,6 +20,7 @@
 
 <script setup>
 import ExampleCard from '@/components/ExampleCard.vue'
+import Loading from '@/components/Loading.vue'
 import { useDefinitionsStore } from '@/stores/definitions'
 import { storeToRefs } from 'pinia'
 import { onMounted, computed } from 'vue'

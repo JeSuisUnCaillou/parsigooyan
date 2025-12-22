@@ -25,9 +25,8 @@
     </div>
 
     <div class="word-container fade-in fade-in-4">
-      <div v-if="loading" class="loading">
-        <p>Loading...</p>
-      </div>
+      <Loading v-if="loading" />
+
       <ExampleCard 
         v-else-if="wordOfTheDate"
         :farsi-word="wordOfTheDate.persian_word"
@@ -49,6 +48,7 @@
 <script setup>
 import BackButton from '@/components/BackButton.vue'
 import ExampleCard from '@/components/ExampleCard.vue'
+import Loading from '@/components/Loading.vue'
 import { useDefinitionsStore } from '@/stores/definitions.js'
 import { useRoute, useRouter } from 'vue-router'
 import { ref, computed, onMounted, watch } from 'vue'
