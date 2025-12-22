@@ -85,7 +85,7 @@ const document = {
 
         <p class="read-more-container">
           <RouterLink to="/articles" class="read-more">
-            <button class="read-more-button">
+            <button class="secondary-button">
               نوشتارهای بیشتری را ببینید
             </button>
           </RouterLink>
@@ -204,22 +204,8 @@ const document = {
   margin-top: 60px;
 }
 
-.read-more-button {
-  background-color: $bg-gold;
-  color: white;
-  padding: 10px 50px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $bg-gold-light;
-  }
-}
-
 .word-of-the-day-section {
   text-align: center;
 }
+
 </style>

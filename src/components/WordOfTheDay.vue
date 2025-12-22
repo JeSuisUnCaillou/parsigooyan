@@ -13,7 +13,9 @@
     <Loading v-else class="loading" />
 
     <RouterLink :to="yesterdayLink" class="see-more-link">
-      واژههای روز پیشین را ببینید
+      <button class="secondary-button">
+        واژههای روز پیشین را ببینید
+      </button>
     </RouterLink>
   </div>
 </template>
@@ -61,16 +63,6 @@ onMounted(() => {
 }
 
 .see-more-link {
-  margin-top: 30px;
-  display: inline-block;
-  color: $bg-gold;
-  font-weight: bold;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-  text-decoration: underline;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  margin-top: 60px;
 }
 </style>
