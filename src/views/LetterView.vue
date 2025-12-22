@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <back-button position="top" />
 
     <h1>{{route.params.letter}}</h1>

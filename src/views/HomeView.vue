@@ -27,7 +27,7 @@ const document = {
 </script>
 
 <template>
-  <div class="home">
+  <div class="content large-content home">
     <div class="title-container">
       <div>
         <h1 class="title-font right-to-left">

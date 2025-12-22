@@ -10,7 +10,7 @@ store.getLetters()
 
 <template>
   <NavBar />
-  <RouterView class="content" />
+  <RouterView />
   <NavFooter />
 </template>
 
