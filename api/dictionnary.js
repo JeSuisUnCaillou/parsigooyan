@@ -66,13 +66,19 @@ export default {
     return definitions
   },
   word_of_the_day () {
-    const seed = getDateSeed()
-    // Use modulo to get an index within the dictionary bounds
+    return this.word_of_the_date(new Date().toISOString().split('T')[0])
+  },
+  word_of_the_date (dateString) {
+    const date = new Date(dateString)
+    if (isNaN(date.getTime())) {
+      return { error: 'Invalid date format' }
+    }
+    const seed = getDateSeed(date)
     const index = seed % dictionnary.length
     const word = dictionnary[index]
     return {
       ...word,
-      date: new Date().toISOString().split('T')[0]
+      date: date.toISOString().split('T')[0]
     }
   }
 }

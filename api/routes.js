@@ -29,4 +29,14 @@ export default (app) => {
     console.log('GET ' + req.url)
     res.send(dictionnary.word_of_the_day())
   })
+
+  app.get('/api/word-of-the-date/:date', (req, res) => {
+    console.log('GET ' + req.url)
+    const result = dictionnary.word_of_the_date(req.params.date)
+    if (result.error) {
+      res.status(400).send(result)
+    } else {
+      res.send(result)
+    }
+  })
 }
