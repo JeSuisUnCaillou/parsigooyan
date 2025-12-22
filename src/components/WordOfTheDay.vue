@@ -37,7 +37,6 @@ onMounted(() => {
 <style lang="scss" scoped>
 .word-of-the-day-card {
   margin: 0 auto;
-  padding: 30px 40px;
 }
 
 .word-of-the-day-title {

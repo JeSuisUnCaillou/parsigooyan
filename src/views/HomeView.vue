@@ -77,7 +77,7 @@ const document = {
 
     <section class="articles-section fade-in fade-in-5">
       <div class="content">
-        <h2 class="explore-title section-title">
+        <h2 class="articles-title">
           نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
         </h2>
 
@@ -94,7 +94,7 @@ const document = {
     </section>
 
     <section class="letters-section content fade-in fade-in-6">
-      <h2 class="explore-title section-title">
+      <h2 class="explore-title">
         فرهنگ‌ واژه ها را جستجو کنید
       </h2>
 
@@ -125,7 +125,7 @@ const document = {
 
 .articles-section {
   background: linear-gradient(135deg, rgba(54, 52, 69, 0.02) 0%, rgba(213, 141, 51, 0.05) 100%);
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .examples-container {
@@ -136,8 +136,12 @@ const document = {
   color: $bg-gold;
 }
 
-.section-title {
-  margin-top: 100px;
+.articles-title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.explore-title {
   margin-bottom: 50px;
 }
 
