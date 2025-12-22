@@ -6,17 +6,25 @@ import RotatingExamples from '@/components/RotatingExamples.vue'
 
 const examples = [
   {
+    // hello
     foreign_word: "سلام",
     farsi_word: "درود"
   },
   {
+    // sorry
     foreign_word: "عفو",
     farsi_word: "بخشودن"
-  },
+  }, 
   {
+    // bye
     foreign_word: "خداحافظ",
     farsi_word: "خدا نگهدار یا بدرود"
   },
+  {
+    // merci
+    foreign_word: "ممنونم",
+    farsi_word: "سپاسگزارم "
+  }
 ]
 
 const document = {
