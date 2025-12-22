@@ -14,7 +14,7 @@
 
     <RouterLink :to="yesterdayLink" class="see-more-link">
       <button class="secondary-button">
-        واژههای روزهای پیشین را ببینید
+        واژه های روزهای پیشین را ببینید
       </button>
     </RouterLink>
   </div>
