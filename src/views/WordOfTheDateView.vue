@@ -3,11 +3,11 @@
     <back-button position="top" />
 
     <h1 class="fade-in fade-in-1">واژه روز</h1>
-    <p class="subtitle fade-in fade-in-2">هر روز یک کلمه جدید برای یادگیری</p>
+    <p class="subtitle fade-in fade-in-2">هر روز یک واژه تازه برای یادگیری</p>
 
     <div class="date-navigation fade-in fade-in-3">
       <button class="nav-button" @click="previousDay" :disabled="loading">
-        قبلی
+        پیشین
       </button>
       
       <div class="current-date">

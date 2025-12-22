@@ -2,7 +2,7 @@
   <div class="word-of-the-day-card center-content right-to-left">
     <div class="word-of-the-day-header">
       <h2 class="word-of-the-day-title">واژه روز</h2>
-      <span class="word-of-the-day-subtitle">هر روز یک کلمه جدید برای یادگیری</span>
+      <span class="word-of-the-day-subtitle">هر روز یک واژه تازه برای یادگیری</span>
     </div>
 
     <ExampleCard
@@ -15,7 +15,7 @@
     </div>
 
     <RouterLink to="/word-of-the-date" class="see-more-link">
-      کلمات قبلی روز را ببینید
+      واژه‌های پیشین روز را ببینید
     </RouterLink>
   </div>
 </template>
