@@ -2,7 +2,7 @@
   <div class="content content-min-height search-results">
     <back-button position="top" />
 
-    <h1 class="results-header">
+    <h1 class="results-header fade-in fade-in-1">
       {{computed_title}}
     </h1>
 
