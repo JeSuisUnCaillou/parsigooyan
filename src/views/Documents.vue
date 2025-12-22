@@ -7,7 +7,7 @@ const documents = documentsData
 </script>
 
 <template>
-  <div class="content documents-container">
+  <div class="content documents-container content-min-height">
     <h1>
       نوشتار های زیر به زبان پارسی و بدون واژه های بیگانه
     </h1>

@@ -25,6 +25,9 @@ html, body {
   max-width: $content-width;
   margin-top: $navbar-height;
 }
+.content-min-height {
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+}
 
 a {
   color: $bg-color;

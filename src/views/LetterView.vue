@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content content-min-height">
     <back-button position="top" />
 
     <h1>{{route.params.letter}}</h1>

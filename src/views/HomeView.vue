@@ -52,69 +52,33 @@ const document = {
       </div>
     </section>
 
-    <div class="introduction">
-      <div class="pure-farsi-sentence">
-        <h2>
-          اگر بشما بگویم که می‌توانید بدون بهره بردن از واژه های خارجی یا بیگانه، پارسی گویش کنید ، چه می‌اندیشید ؟
-        </h2>
+    <section class="articles-section content">
+      <h2 class="explore-title section-title">
+        نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
+      </h2>
+
+      <Document :document="document" />
+
+      <p class="read-more-container">
+        <RouterLink to="/articles" class="read-more">
+          <button class="read-more-button">
+            نوشتارهای بیشتری را ببینید
+          </button>
+        </RouterLink>
+      </p>
+    </section>
+
+    <section class="letters-section content">
+      <h2 class="explore-title section-title">
+        فرهنگ‌ واژه ها را جستجو کنید
+      </h2>
+
+      <SearchBar class="search-container"/>
+
+      <div class="letters-container">
+        <Letters />
       </div>
-
-      <p>
-        این گفتار را فهمیدید ، نه ؟
-      </p>
-      <p>
-        این نمونه ای است که بما نشان می‌دهد که می‌توانیم پارسی را بدون واژه های بیگانه بفهمیم 
-      </p>
-
-      <p>
-        اینک تنها بایستی یاد بگیریم که چگونه با پارسی ناب گویش کنیم یا بنویسیم 
-      </p>
-    </div>
-    
-    <h2 class="section-title">
-      چند نمونه برای آغاز کردن
-    </h2>
-
-    <div class="examples">
-      <div v-for="example in examples"
-            :key="example.foreign_word"
-            class="example">
-        
-        <div class="foreign word">
-          {{ example.foreign_word }}
-        </div>
-        <img  src="@/assets/left-arrow-tail.svg"
-              class="arrow-icon"/>
-        
-        <div class="farsi word">
-          {{ example.farsi_word }}
-        </div>
-      </div>
-    </div>
-
-    <h2 class="explore-title section-title">
-      نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
-    </h2>
-
-    <Document :document="document" />
-
-    <p class="read-more-container">
-      <RouterLink to="/articles" class="read-more">
-        <button class="read-more-button">
-          نوشتارهای بیشتری را ببینید
-        </button>
-      </RouterLink>
-    </p>
-
-    <h2 class="explore-title section-title">
-      فرهنگ‌ واژه ها را جستجو کنید
-    </h2>
-
-    <SearchBar class="search-container"/>
-
-    <div class="letters-container">
-      <Letters />
-    </div>
+    </section>
 
   </div>
 </template>
@@ -175,22 +139,8 @@ const document = {
   }
 }
 
-.introduction {
-  margin: 50px 0;
-  text-align: center;
-}
-
 .explore-title {
   text-align: center;
-}
-
-.pure-farsi-sentence {
-  margin: 40px 0;
-  padding: 20px 40px;
-  background-color: $bg-color;
-  color: $txt-color;
-  font-weight: bold;
-  width: 100%;
 }
 
 .examples {

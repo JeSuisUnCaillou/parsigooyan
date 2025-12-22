@@ -1,5 +1,5 @@
 <template>
-  <div class="content search-results">
+  <div class="content content-min-height search-results">
     <back-button position="top" />
 
     <h1 class="results-header">
