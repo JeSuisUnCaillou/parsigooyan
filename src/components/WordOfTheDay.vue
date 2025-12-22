@@ -63,6 +63,7 @@ onMounted(() => {
   font-weight: bold;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  text-decoration: underline;
 
   &:hover {
     opacity: 0.8;

@@ -150,7 +150,9 @@ h1 {
 .nav-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-width: 100px;
   padding: 12px 24px;
   background: white;
   border: 2px solid $bg-gold;
@@ -217,17 +219,18 @@ h1 {
 
 .today-button {
   padding: 12px 32px;
-  background: $bg-gold;
-  border: none;
+  background: white;
+  border: 2px solid $bg-gold;
   border-radius: 8px;
-  color: white;
+  color: $bg-gold;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: darken($bg-gold, 10%);
+    background: $bg-gold;
+    color: white;
   }
 }
 
