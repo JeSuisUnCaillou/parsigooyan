@@ -23,11 +23,7 @@ html, body {
   margin: 0 auto;
   max-width: $content-width;
   margin-top: $navbar-height;
-  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
-}
-
-.large-content {
-  max-width: 100%;
+  // min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
 }
 
 a {

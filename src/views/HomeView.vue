@@ -27,18 +27,27 @@ const document = {
 </script>
 
 <template>
-  <div class="content large-content home">
-    <div class="title-container">
-      <div>
-        <h1 class="title-font right-to-left">
-          Parsigooyan.org
-        </h1>
-        <div class="tagline right-to-left">
-          تنها واژه نامه جیبی, برای جایگزینی واژه های خارجی با واژه های پارسی
+  <div class="home">
+    <section class="hero">
+      <div class="content">
+        <div class="title-container">
+          <div>
+            <h1 class="title-font right-to-left">
+              فارسی را 
+              <span class="orange-text">
+                دوباره
+              </span> 
+              یاد بگیرید
+            </h1>
+            <div class="tagline right-to-left">
+              بیش از ۷۸۰۰ واژه پارسی برای جایگزینی واژه‌های خارجی
+            </div>
+          </div>
         </div>
+
+        <SearchBar class="search-container"/>
       </div>
-      <img src="@/assets/books.png" class="books"/>
-    </div>
+    </section>
 
     <div class="introduction">
       <div class="pure-farsi-sentence">
@@ -110,8 +119,19 @@ const document = {
 
 <style lang="scss" scoped>
 .home {
-  padding: 20px;
   text-align: center;
+}
+
+.hero {
+  background: radial-gradient(circle at 20% 80%, rgba(213, 141, 51, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(54, 52, 69, 0.1) 0%, transparent 50%);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orange-text {
+  color: $bg-gold;
 }
 
 .section-title {
@@ -128,29 +148,22 @@ const document = {
 
   h1 {
     margin: 0;
-    font-size: 3rem;
-    font-weight: 500;
+    font-size: 3em;
+    font-weight: 700;
   }
 
   .tagline {
     margin-top: 10px;
     color: gray;
-    font-size: .9rem;
-  }
-
-  .books {
-    max-width: 100px;
-    margin-left: 20px;
+    font-size: 1.2em;
   }
 
   @media (max-width: 576px) {
-    .books {
-      max-width: 80px;
-      margin-right: 10px;
-    }
-
     h1 {
-      font-size: 1.8rem;
+      font-size: 2em;
+    }
+    .tagline {
+      font-size: 1em;
     }
   }
 }
@@ -217,6 +230,8 @@ const document = {
 
 .search-container {
   margin: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 .read-more-container {
