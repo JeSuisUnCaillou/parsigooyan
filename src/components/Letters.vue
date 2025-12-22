@@ -41,7 +41,7 @@ const total_definitions = computed(() => {
 
 <style lang="scss" scoped>
 .total-title {
-  text-align: right;
+  // text-align: right;
   margin: 20px 0;
 }
 
