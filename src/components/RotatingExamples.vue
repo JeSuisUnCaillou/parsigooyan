@@ -43,6 +43,11 @@ function nextExample() {
   }, 300)
 }
 
+function resetTimer() {
+  if (intervalId) clearInterval(intervalId)
+  intervalId = setInterval(nextExample, 3000)
+}
+
 function goToExample(index) {
   if (index === currentIndex.value) return
   isAnimating.value = true
@@ -50,6 +55,7 @@ function goToExample(index) {
     currentIndex.value = index
     isAnimating.value = false
   }, 300)
+  resetTimer()
 }
 
 onMounted(() => {
