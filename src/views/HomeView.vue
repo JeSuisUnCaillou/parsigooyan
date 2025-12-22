@@ -21,10 +21,20 @@ const examples = [
     farsi_word: "خدا نگهدار یا بدرود"
   },
   {
-    // merci
+    // thanks
     foreign_word: "ممنونم",
     farsi_word: "سپاسگزارم "
-  }
+  },
+  {
+    // temps
+    foreign_word: "وقت",
+    farsi_word: "زمان"
+  },
+  {
+    // heart
+    foreign_word: "قلب",
+    farsi_word: "دل"
+  },
 ]
 
 const document = {
