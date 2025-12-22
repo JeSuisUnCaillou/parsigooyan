@@ -2,6 +2,7 @@
 import Letters from '@/components/Letters.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import Document from '@/components/Document.vue'
+import RotatingExamples from '@/components/RotatingExamples.vue'
 
 const examples = [
   {
@@ -44,6 +45,8 @@ const document = {
             </div>
           </div>
         </div>
+
+        <RotatingExamples :examples="examples" class="examples-container"/>
 
         <SearchBar class="search-container"/>
       </div>
@@ -128,6 +131,10 @@ const document = {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.examples-container {
+  margin: 60px 0;
 }
 
 .orange-text {
