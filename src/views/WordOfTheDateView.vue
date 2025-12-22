@@ -39,7 +39,7 @@
 
     <div class="today-button-container fade-in fade-in-5" v-if="!isToday">
       <button class="today-button" @click="goToToday">
-        برو به امروز
+        امروز
       </button>
     </div>
   </div>
