@@ -14,8 +14,8 @@
       <p>Loading...</p>
     </div>
 
-    <RouterLink to="/word-of-the-date" class="see-more-link">
-      واژه‌های پیشین روز را ببینید
+    <RouterLink :to="yesterdayLink" class="see-more-link">
+      واژههای روز پیشین را ببینید
     </RouterLink>
   </div>
 </template>
@@ -24,10 +24,16 @@
 import ExampleCard from '@/components/ExampleCard.vue'
 import { useDefinitionsStore } from '@/stores/definitions'
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 
 const definitionsStore = useDefinitionsStore()
 const { wordOfTheDay } = storeToRefs(definitionsStore)
+
+const yesterdayLink = computed(() => {
+  const yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  return `/word-of-the-date/${yesterday.toISOString().split('T')[0]}`
+})
 
 onMounted(() => {
   definitionsStore.fetchWordOfTheDay()
