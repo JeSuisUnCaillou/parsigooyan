@@ -235,12 +235,12 @@ h1 {
 
 @media (max-width: 576px) {
   .date-navigation {
-    gap: 15px;
+    flex-wrap: wrap;
   }
 
-  .nav-button {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+  .current-date {
+    order: -1;
+    width: 100%;
   }
 }
 </style>
