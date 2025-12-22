@@ -13,6 +13,10 @@
     <div v-else>
       <p>Loading...</p>
     </div>
+
+    <RouterLink to="/word-of-the-date" class="see-more-link">
+      کلمات قبلی روز را ببینید
+    </RouterLink>
   </div>
 </template>
 
@@ -50,5 +54,18 @@ onMounted(() => {
 
 .word-of-the-day-subtitle {
   margin-bottom: 20px;
+}
+
+.see-more-link {
+  margin-top: 30px;
+  display: inline-block;
+  color: $bg-gold;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 </style>

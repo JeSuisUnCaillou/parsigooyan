@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LetterView from '../views/LetterView.vue'
 import SearchResults from '../views/SearchResults.vue'
 import Documents from '../views/Documents.vue'
+import WordOfTheDateView from '../views/WordOfTheDateView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       path: '/articles',
       name: 'Documents',
       component: Documents
+    },
+    {
+      path: '/word-of-the-date/:date?',
+      name: 'WordOfTheDate',
+      component: WordOfTheDateView
     }
   ],
 })

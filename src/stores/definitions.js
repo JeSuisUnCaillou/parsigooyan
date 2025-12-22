@@ -44,6 +44,10 @@ export const useDefinitionsStore = defineStore('definitions', {
     async fetchWordOfTheDay () {
       const result = await axios.get(`${backendUrl}api/word-of-the-day`)
       this.wordOfTheDay = result.data
+    },
+    async fetchWordOfTheDate (date) {
+      const result = await axios.get(`${backendUrl}api/word-of-the-date/${date}`)
+      return result.data
     }
   }
 })
