@@ -143,48 +143,6 @@ const document = {
   text-align: center;
 }
 
-.examples {
-  margin: 50px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-
-  h2 {
-    margin-top: 0;
-  }
-}
-
-.example {
-  padding: 40px;
-  background-color: $light-gray;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-  @media screen and (max-width: 576px) {
-    width: 100%;
-    padding: 20px
-  }
-}
-
-.arrow-icon {
-  height: 20px;
-}
-
-.word {
-  padding: 20px;
-  font-size: 1.8rem;
-
-  @media screen and (max-width: 576px) {
-    padding: 10px;
-    font-size: 1.2rem;
-  }
-}
-
 .search-container {
   margin: 30px 0;
   border-radius: 15px;
