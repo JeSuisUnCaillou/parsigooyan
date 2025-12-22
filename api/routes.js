@@ -24,4 +24,9 @@ export default (app) => {
       definitions: await dictionnary.definitions_of_letter(req.params.character)
     })
   })
+
+  app.get('/api/word-of-the-day', (req, res) => {
+    console.log('GET ' + req.url)
+    res.send(dictionnary.word_of_the_day())
+  })
 }

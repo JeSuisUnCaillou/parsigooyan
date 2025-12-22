@@ -67,3 +67,26 @@ describe('dictionnary.find()', () => {
     expect(result.definitions[0].foreign_word).toBe('سؤال')
   })
 })
+
+describe('dictionnary.word_of_the_day()', () => {
+  it('returns a word with all expected fields', () => {
+    const result = dictionnary.word_of_the_day()
+    expect(result).toHaveProperty('letter')
+    expect(result).toHaveProperty('foreign_word')
+    expect(result).toHaveProperty('persian_word')
+    expect(result).toHaveProperty('date')
+  })
+
+  it('returns today\'s date in ISO format', () => {
+    const result = dictionnary.word_of_the_day()
+    const today = new Date().toISOString().split('T')[0]
+    expect(result.date).toBe(today)
+  })
+
+  it('returns the same word when called multiple times on the same day', () => {
+    const result1 = dictionnary.word_of_the_day()
+    const result2 = dictionnary.word_of_the_day()
+    expect(result1.foreign_word).toBe(result2.foreign_word)
+    expect(result1.persian_word).toBe(result2.persian_word)
+  })
+})

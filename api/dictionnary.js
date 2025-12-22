@@ -26,6 +26,25 @@ const letters = Object.entries(letters_hash).map((letter_and_count) => {
 console.log(`${Object.keys(letters).length} letters loaded`)
 
 
+// Simple hash function to scramble a number deterministically
+function hashNumber(n) {
+  // Use a simple but effective mixing function
+  n = ((n >> 16) ^ n) * 0x45d9f3b
+  n = ((n >> 16) ^ n) * 0x45d9f3b
+  n = (n >> 16) ^ n
+  return Math.abs(n)
+}
+
+// Generate a deterministic but scattered index based on the date
+function getDateSeed(date = new Date()) {
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDate()
+  // Combine year, month, day then hash to scatter consecutive days
+  const dateSeed = year * 10000 + (month + 1) * 100 + day
+  return hashNumber(dateSeed)
+}
+
 export default {
   async find (word) {
     var definitions = search(word)
@@ -45,5 +64,15 @@ export default {
     })
 
     return definitions
+  },
+  word_of_the_day () {
+    const seed = getDateSeed()
+    // Use modulo to get an index within the dictionary bounds
+    const index = seed % dictionnary.length
+    const word = dictionnary[index]
+    return {
+      ...word,
+      date: new Date().toISOString().split('T')[0]
+    }
   }
 }
