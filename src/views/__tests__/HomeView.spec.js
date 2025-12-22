@@ -16,6 +16,6 @@ describe('HomeView', () => {
         plugins: [createPinia()]
       }
     })
-    expect(wrapper.text()).toContain('تنها واژه نامه جیبی, برای جایگزینی واژه های خارجی با واژه های پارسی')
+    expect(wrapper.text()).toContain('بیش از ۷۷۰۰ واژه پارسی برای جایگزینی واژه‌های خارجی')
   })
 })
