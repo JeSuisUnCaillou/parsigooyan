@@ -49,7 +49,7 @@ const document = {
   <div class="home">
     <section class="hero">
       <div class="content">
-        <div class="title-container">
+        <div class="title-container fade-in fade-in-1">
           <div>
             <h1 class="title-font right-to-left">
               فارسی را 
@@ -64,13 +64,13 @@ const document = {
           </div>
         </div>
 
-        <RotatingExamples :examples="examples" class="examples-container"/>
+        <RotatingExamples :examples="examples" class="examples-container fade-in fade-in-2"/>
 
-        <SearchBar class="search-container"/>
+        <SearchBar class="search-container fade-in fade-in-3"/>
       </div>
     </section>
 
-    <section class="articles-section content">
+    <section class="articles-section content fade-in fade-in-4">
       <h2 class="explore-title section-title">
         نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
       </h2>
@@ -86,7 +86,7 @@ const document = {
       </p>
     </section>
 
-    <section class="letters-section content">
+    <section class="letters-section content fade-in fade-in-5">
       <h2 class="explore-title section-title">
         فرهنگ‌ واژه ها را جستجو کنید
       </h2>
