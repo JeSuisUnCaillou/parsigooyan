@@ -130,7 +130,6 @@ onMounted(() => {
 
 h1 {
   margin-bottom: 10px;
-  color: $bg-gold;
 }
 
 .subtitle {
