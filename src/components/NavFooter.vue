@@ -1,8 +1,18 @@
 <template>
   <div class="footer">
     <div class="footer-content">
-      Any questions ? Contact me at:<br /><br />
-      <span class="adress">jaleh.daftarian@gmail.com</span>
+      <p>
+        Any questions about the content ? Contact me at 
+        <a href="mailto:jaleh.daftarian@gmail.com" rel="noopener noreferrer">
+          jaleh.daftarian@gmail.com
+        </a>
+      </p>
+      <p class="github-link">
+        For the technical issues or features requests, please
+        <a href="https://github.com/JeSuisUnCaillou/parsigooyan/issues/new" target="_blank" rel="noopener noreferrer">
+          submit an issue on GitHub
+        </a>
+      </p>
     </div>
   </div>
 </template>
@@ -27,8 +37,13 @@
   text-align: center;
 }
 
-.adress {
-  font-weight: bold;
-  font-size: 1.2rem;
+a {
+  color: $txt-color;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 </style>
