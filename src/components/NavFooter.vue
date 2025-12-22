@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="footer-content">
       <p>
-        Any questions about the content ? Contact me at 
+        Any questions about the content ? Contact the author at 
         <a href="mailto:jaleh.daftarian@gmail.com" rel="noopener noreferrer">
           jaleh.daftarian@gmail.com
         </a>
