@@ -48,7 +48,7 @@ const document = {
 <template>
   <div class="home">
     <section class="hero">
-      <div class="content">
+      <div class="content center-content">
         <div class="title-container fade-in fade-in-1">
           <div>
             <h1 class="title-font right-to-left">
@@ -66,7 +66,7 @@ const document = {
 
         <RotatingExamples :examples="examples" class="examples-container fade-in fade-in-2"/>
 
-        <SearchBar class="search-container fade-in fade-in-3"/>
+        <SearchBar class="search-container small-search fade-in fade-in-3"/>
       </div>
     </section>
 
@@ -116,7 +116,7 @@ const document = {
 }
 
 .examples-container {
-  margin: 60px 0;
+  margin: 30px 0;
 }
 
 .orange-text {
@@ -126,6 +126,13 @@ const document = {
 .section-title {
   margin-top: 100px;
   margin-bottom: 50px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .title-container {
@@ -159,6 +166,10 @@ const document = {
 
 .explore-title {
   text-align: center;
+}
+
+.small-search {
+  width: 500px;
 }
 
 .search-container {
