@@ -105,6 +105,7 @@ const document = {
 <style lang="scss" scoped>
 .home {
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .hero {
