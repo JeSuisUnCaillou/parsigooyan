@@ -1,5 +1,5 @@
 <template>
-  <div class="word-of-the-day-card center-content">
+  <div class="word-of-the-day-card center-content right-to-left">
     <div class="word-of-the-day-header">
       <h2 class="word-of-the-day-title">واژه روز</h2>
       <span class="word-of-the-day-subtitle">هر روز یک کلمه جدید برای یادگیری</span>
@@ -34,11 +34,6 @@ onMounted(() => {
 .word-of-the-day-card {
   margin: 0 auto;
   padding: 30px 40px;
-  background: linear-gradient(135deg, rgba(213, 141, 51, 0.1) 0%, rgba(54, 52, 69, 0.05) 100%);
-  border: 2px solid $bg-gold;
-  border-radius: 16px;
-  text-align: right;
-  direction: rtl;
 }
 
 .word-of-the-day-title {

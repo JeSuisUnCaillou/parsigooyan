@@ -75,20 +75,22 @@ const document = {
       <WordOfTheDay />
     </section>
 
-    <section class="articles-section content fade-in fade-in-5">
-      <h2 class="explore-title section-title">
-        نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
-      </h2>
+    <section class="articles-section fade-in fade-in-5">
+      <div class="content">
+        <h2 class="explore-title section-title">
+          نوشتار هایی که در پایین، به زبان پارسی و بدون واژه های بیگانه نوشته شده است را بخوانید
+        </h2>
 
-      <Document :document="document" />
+        <Document :document="document" />
 
-      <p class="read-more-container">
-        <RouterLink to="/articles" class="read-more">
-          <button class="read-more-button">
-            نوشتارهای بیشتری را ببینید
-          </button>
-        </RouterLink>
-      </p>
+        <p class="read-more-container">
+          <RouterLink to="/articles" class="read-more">
+            <button class="read-more-button">
+              نوشتارهای بیشتری را ببینید
+            </button>
+          </RouterLink>
+        </p>
+      </div>
     </section>
 
     <section class="letters-section content fade-in fade-in-6">
@@ -119,6 +121,11 @@ const document = {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.articles-section {
+  background: linear-gradient(135deg, rgba(54, 52, 69, 0.02) 0%, rgba(213, 141, 51, 0.05) 100%);
+  padding-bottom: 100px;
 }
 
 .examples-container {
