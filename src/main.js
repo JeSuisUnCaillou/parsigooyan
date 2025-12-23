@@ -16,8 +16,15 @@ if ('serviceWorker' in navigator) {
 
 const app = createApp(App)
 
-const gtag = createGtag({ tagId: 'G-6ZTS9KR80W', pageTracker: { router } })
-app.use(gtag)
+// Only enable Google Analytics on production domain
+const isProduction = window.location.hostname === 'parsigooyan.org' || window.location.hostname === 'www.parsigooyan.org'
+if (isProduction) {
+  const gtag = createGtag({
+    tagId: 'G-6ZTS9KR80W',
+    pageTracker: { router }
+  })
+  app.use(gtag)
+}
 
 app.use(createPinia())
 app.use(router)
