@@ -25,7 +25,7 @@
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vue/test-utils": "^2.4.11",
     "cors": "^2.8.6",
     "cypress": "^15.18.1",
